@@ -5,6 +5,14 @@
 \usecolortheme{crane}
 \setbeamertemplate{frame numbering}[fraction]
 
+\usefonttheme[onlymath]{serif}
+
+%\usepackage[numbers]{natbib}
+\usepackage{bibentry}
+%\nobibliography*
+%\usepackage[style=phys]{biblatex}
+%\addbibresource{biblio.bib}
+
 \title{Multi-Wavelength Techniques in Digital Holography: Tutorial}
 \author{Myung K Kim}
 \institute{Dept of Physics, University of South Florida, Tampa, FL USA 33620}
@@ -22,6 +30,11 @@
 
 \begin{frame}{abstract}
 Basic principles and techniques will be described for multi-wavelength or multi-illumination-angle methods for extending capabilities of digital holography for surface profilomentry by optical phase unwrapping and topography/tomography by snthesized optical coherence.
+
+\[ 
+E_P = \frac{i}{4\pi}E_Se^{-i\omega t} \int_\Sigma d\Sigma \frac{\exp\left[ik(r+r')\right]}{rr'} (\hat{\textbf r} - \hat{\textbf r'}) \cdot \hat{\textbf n} 
+\]
+
 \end{frame}
 
 
@@ -154,13 +167,27 @@ Basic principles and techniques will be described for multi-wavelength or multi-
 		\item competing trending technologies
 		\item potential solutions and advantages
 	\end{itemize}
+	\vspace{1 cm}
 \end{frame}
 
 
 \section{references}
 
+\begin{frame}{bibliography}
+this is 2013 \cite{Kim2013} \\
+
+this is 2020 ... \bibentry{Kim2020}
+%this is 2020 ... \fullcite{Yu2014}
+
+\bibliographystyle{bibstyles/osajnl}
+%\bibliographystyle{plain}
+%\bibliography{biblio.bib}
+
+\end{frame}
+
 
 \frame{}
+\bibliography{biblio.bib}
 
 
 \begin{frame}{todolist}
