@@ -352,8 +352,6 @@ $$
 
 
 
-
-
 ##### MWOPU process
 
 ##### sample python code
@@ -364,9 +362,35 @@ $$
 
 
 
+## WSQPM
+
+##### WSQPM theory
+
+
+
+
+
+
+
+##### WSQPM process
+
+##### sample python code
+
+##### WSQPM examples: mkkim
+
+##### WSQPM examples: survey
+
+
+
 ## WSDIH
 
 ##### theory of WSDIH
+
+
+
+
+
+
 
 ##### WSDIH process
 
@@ -387,6 +411,17 @@ $$
 ##### index tuning
 
 ##### angle scanning
+
+
+
+|        | wavelength | angle |      |      |
+| ------ | ---------- | ----- | ---- | ---- |
+| 1W QPM | QPM        |       |      |      |
+| 2W QPM | 2WOPU      | 2AOPU |      |      |
+| MW QPM | MWOPU      | MAOPU |      |      |
+| WS QPM | WSOPU      | ASOPU |      |      |
+| WS DIH | WSDIH      | ASDIH |      |      |
+|        |            |       |      |      |
 
 
 
@@ -430,6 +465,75 @@ $$
 
 
 
+##### 1WQPM
+
+- Mann, C. J., Yu, L., Lo, C.-M., & Kim, M. K. (2005). High-resolution quantitative phase-contrast microscopy by digital holography. *Optics Express*, *13*(22), 8693. https://doi.org/10.1364/opex.13.008693
+
+
+
+##### 2WQPM
+
+- Gass, J., Dakoff, A., & Kim, M. K. (2003). Phase imaging without 2π ambiguity by multiwavelength digital holography. *Optics Letters*, *28*(13), 1141. https://doi.org/10.1364/ol.28.001141
+
+
+
+
+
+##### MWQPM
+
+- Kim, M. K. (2022). Phase microscopy and surface profilometry by digital holography. *Light: Advanced Manufacturing*, *3*(1), 1. https://doi.org/10.37188/lam.2022.019
+- Wagner, C., Osten, W. & Seebacher, S. Direct shape measurement bydigital  wavefront  reconstruction  and  multi-wavelength  contouring.Optical Engineering39, 79-85 (2000).
+
+
+
+
+
+##### WSQPM
+
+- 
+
+
+
+
+
+##### WSDIH
+
+- Kim, M. K. (1999). Wavelength-scanning digital interference holography for optical section imaging. *Optics Letters*, *24*(23), 1693. https://doi.org/10.1364/ol.24.001693
+
+
+
+
+
+##### MAQPM
+
+- Kim, M. K. (2022). Phase microscopy and surface profilometry by digital holography. *Light: Advanced Manufacturing*, *3*(1), 1. https://doi.org/10.37188/lam.2022.019
+
+
+
+
+
+##### ASQPM
+
+- Psota,  P.,  et  al.  Multiple  angle  digital  holography  for  the  shapemeasurement of the unpainted tympanic membrane. Optics  Express28, 24614-24628 (2020).
+- Martinez-Carranza,  J.,  et  al.  Multi-incidence  digital  holographicprofilometry  with  high  axial  resolution  and  enlarged  measurementrange. Optics Express28, 8185-8199 (2020)
+
+
+
+
+
+##### ASDIH
+
+- Je on, Y. & Hong, C. K. Optical section imaging of the tilted planes byillumination-angle-scanning  digital  interference  holography. AppliedOptics49, 5110-5116 (2010).
+- Do ng, J., J ia, S. H. & Jiang, C. Surface shape measurement by multi-illumination   lensless   Fourier   transform   digital   holographicinterferometry. Optics Communications402, 91-96 (2017).
+
+
+
+
+
+
+
+------
+
 ##### DHM examples: survey
 
 
@@ -466,24 +570,12 @@ $$
 
 
 
-
-
 ## todolist
 
 - [ ] theories
-- [ ] 
-
-
-
-
-
-
-
-
-
-
-
-
+- [ ] beta scan
+- [ ] diffraction
+- [ ] biblio: from LAM
 
 
 
