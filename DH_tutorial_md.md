@@ -43,13 +43,33 @@ Basic principles and techniques will be described for multi-wavelength or multi-
 
 ##### Gabor
 
+- Gabor, D. (1949). Microscopy by reconstructed wave-fronts. *Proceedings of the Royal Society of London. Series A. Mathematical and Physical Sciences*, *197*(1051), 454–487. https://doi.org/10.1098/rspa.1949.0075
+
+<img src="DH_tutorial_md.assets/image-20220426134139308.png" alt="image-20220426134139308" style="zoom: 25%;" />
+
 ##### Leigth & Upatnieks
+
+- Leith, E. N., & Upatnieks, J. (1964). Wavefront Reconstruction with Diffused Illumination and Three-Dimensional Objects. *J. Opt. Soc. Am.*, *54*(11), 1295–1301. https://doi.org/10.1364/JOSA.54.001295
+
+<img src="DH_tutorial_md.assets/image-20220426135144501.png" alt="image-20220426135144501" style="zoom: 80%;" />
 
 ##### JW Goodman
 
+- Goodman, J. W., & Lawrence, R. W. (1967). DIGITAL IMAGE FORMATION FROM ELECTRONICALLY DETECTED HOLOGRAMS. *Applied Physics Letters*, *11*(3), 77–79. https://doi.org/10.1063/1.1755043
+
+<img src="DH_tutorial_md.assets/image-20220426135625638.png" alt="image-20220426135625638" style="zoom: 25%;" />
+
 ##### Jueptner & Schnars
 
+- Schnars, U., & Jüptner, W. (1994). Direct recording of holograms by a CCD target and numerical reconstruction. *Appl. Opt.*, *33*(2), 179–181. https://doi.org/10.1364/AO.33.000179
+
+<img src="DH_tutorial_md.assets/image-20220426140019172.png" alt="image-20220426140019172" style="zoom:50%;" />
+
 ##### Depeursinge
+
+- Cuche, E., Bevilacqua, F., & Depeursinge, C. (1999). Digital holography for quantitative phase-contrast imaging. *Opt. Lett.*, *24*(5), 291–293. https://doi.org/10.1364/OL.24.000291
+
+<img src="DH_tutorial_md.assets/image-20220426140050211.png" alt="image-20220426140050211" style="zoom:50%;" />
 
 
 
@@ -57,7 +77,7 @@ Basic principles and techniques will be described for multi-wavelength or multi-
 
 ##### holographic terms
 
-<img src="DH_tutorial_md.assets/image-20220415152931893.png" alt="image-20220415152931893" style="zoom:50%;" />
+<img src="DH_tutorial_md.assets/image-20220415152931893.png" alt="image-20220415152931893" style="zoom: 67%;" />
 
 - hologram recording
 
@@ -155,6 +175,11 @@ $$
 
 <img src="DH_tutorial_md.assets/image-20220415160459990.png" alt="image-20220415160459990" style="zoom: 50%;" />
 
+- FTM:
+  $$
+  Z_{\min} = \frac{X_0^2}{N\lambda}; \qquad\qquad Z_{\max} = \frac{X_0^2}{2\lambda}
+  $$
+
 
 
 ##### sample Python code for AS diffraction
@@ -163,6 +188,26 @@ $$
 - input abs & phs
 - angular spectrum
 - output abs & phs
+
+
+
+```
+def asdiffract(EE):    
+    xx, yy = meshgrid(-ax/2:dx:ax/2-dx, -ay/2:dy:ay/2-dy)
+    k = 2*pi/wlen
+    dkx, dky = 2*pi/ax, 2*pi/ay
+    akx, aky = 2*pi/dx, 2*pi/dy
+    kxx, kyy = meshgrid(-akx/2:dkx:akx/2-dkx, -aky/2:dky:aky/2-dky)
+    
+    FF = fftshift(fft(EE))    
+    GG = exp(1j*z*sqrt(k**2 - kxx**2 - kyy**2))    
+    HH = ifft(ifftshift(FF * GG))
+    
+    % EE: [xx,yy]
+    % FF, GG: [kxx, kyy]
+    % HH: [xx, yy]
+    return HH
+```
 
 
 
@@ -193,18 +238,63 @@ $$
 ##### Gabor in-line holography
 
 - optical configuration
+
+<img src="DH_tutorial_md.assets/image-20220426154854457.png" alt="image-20220426154854457" style="zoom:50%;" />
+
+<img src="DH_tutorial_md.assets/image-20220426154916787.png" alt="image-20220426154916787" style="zoom:50%;" />
+
 - imaging characteristics
 
 ##### phase-shifting digital holography
 
 - optical configuration
+
+<img src="DH_tutorial_md.assets/image-20220426155721421.png" alt="image-20220426155721421" style="zoom: 33%;" />
+
 - imaging characteristics
+
+<img src="DH_tutorial_md.assets/image-20220426155750402.png" alt="image-20220426155750402" style="zoom:50%;" />
+
+
+$$
+E_O(x,y) = \mathcal{E}_O(x,y)\exp[i\Phi(x,y)] \\
+E_R = \mathcal{E}_R e^{i\alpha_n} \\
+\alpha_n = \frac{2\pi}{N}n \qquad n=1,2,3,\cdots,N \\
+I_n = |E_R + E_O|^2 = \mathcal{E}_R^2 + \mathcal{E}_O^2 + \mathcal{E}_R\mathcal{E}_O e^{i(\alpha_n-\Phi)} + \mathcal{E}_R\mathcal{E}_O e^{i(-\alpha_n+\Phi)} \\
+S=\frac{1}{N}\sum_{n=1}^N I_n e^{i\alpha_n} = \frac{1}{N}\left\{\left[\mathcal{E}_R^2 + \mathcal{E}_O^2 \right]\sum_n e^{i\alpha_n} + \mathcal{E}_R\mathcal{E}_O e^{-i\Phi}\sum_n e^{2i\alpha_n} + \mathcal{E}_R\mathcal{E}_O e^{i\Phi}N \right\} \\
+= \mathcal{E}_R\mathcal{E}_O(x,y)\exp[i\Phi(x,y)] \\
+E_O(x,y) = \frac{1}{N\mathcal E_R}\sum_{n=1}^N I_n e^{i\alpha_n}
+$$
+
+- for $N=4$:
+
+$$
+\Phi(x,y) = \atan\frac{I_1 - I_3}{I_2 - I_4}
+$$
+
+
 
 ##### sample PSDH.py code
 
 - python code
 - frames
 - output abs & phs
+
+
+
+```
+def psdh(HH):
+	ny, nx, nph = shape(HH)
+	EE = zeros(ny,nx)
+	for n in range(nph):
+		EE += HH[:,:,n] * exp(1i*n*2*pi/nph)
+    EE = EE/nph
+    return EE
+```
+
+
+
+
 
 ##### off-axis holography
 
@@ -216,7 +306,13 @@ $$
 
 
 - optical configuration
+
+<img src="DH_tutorial_md.assets/image-20220426154947369.png" alt="image-20220426154947369" style="zoom:50%;" />
+
+
 - imaging characteristics
+
+
 
 ##### sample OXDH.py code
 
@@ -575,7 +671,7 @@ $$
 - [ ] theories
 - [ ] beta scan
 - [ ] diffraction
-- [ ] biblio: from LAM
+- [ ] MWDH biblio
 
 
 
