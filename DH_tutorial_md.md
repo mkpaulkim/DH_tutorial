@@ -189,8 +189,6 @@ $$
 - angular spectrum
 - output abs & phs
 
-
-
 ```
 def asdiffract(EE):    
     xx, yy = meshgrid(-ax/2:dx:ax/2-dx, -ay/2:dy:ay/2-dy)
@@ -280,14 +278,12 @@ $$
 - frames
 - output abs & phs
 
-
-
 ```
-def psdh(HH):
-	ny, nx, nph = shape(HH)
+def psdh(HHH):
+	ny, nx, nph = shape(HHH)
 	EE = zeros(ny,nx)
 	for n in range(nph):
-		EE += HH[:,:,n] * exp(1i*n*2*pi/nph)
+		EE += HH[:,:,n] * exp(1j*n*2*pi/nph)
     EE = EE/nph
     return EE
 ```
@@ -298,16 +294,17 @@ def psdh(HH):
 
 ##### off-axis holography
 
+- optical configuration
+
+<img src="DH_tutorial_md.assets/image-20220426154947369.png" alt="image-20220426154947369" style="zoom:50%;" />
+
+- spatial bandwidth
+
 ![image-20220416170733456](DH_tutorial_md.assets/image-20220416170733456.png)
 $$
 B = \frac{2}{2+3\sqrt{2}}K = \beta K \qquad \beta=0.32 \\
 K_0 = \frac{3}{2\sqrt{2}}B = \frac{3}{2\sqrt{2}+6} K = \gamma K \qquad \gamma=0.34 \qquad \sqrt{2}\,\gamma = 0.48
 $$
-
-
-- optical configuration
-
-<img src="DH_tutorial_md.assets/image-20220426154947369.png" alt="image-20220426154947369" style="zoom:50%;" />
 
 
 - imaging characteristics
@@ -321,15 +318,39 @@ $$
 - angular spectrum
 - output abs & phs
 
+```
+def oxdh(HH, qq):
+    xx, yy = meshgrid(-ax/2:dx:ax/2-dx, -ay/2:dy:ay/2-dy)
+    k = 2*pi/wlen
+    dkx, dky = 2*pi/ax, 2*pi/ay
+    akx, aky = 2*pi/dx, 2*pi/dy
+    kxx, kyy = meshgrid(-akx/2:dkx:akx/2-dkx, -aky/2:dky:aky/2-dky)
+    qx0, qy0, qx, qy = qq	% angular position & width
+    kx0, ky0, kx, ky = k*sin(qx0), k*sin(qy0), k*sin(qx), k*sin(qy)    
+
+    FF = fftshift(fft(HH))    
+    BB = (((kxx-kx0)/kx)**2 + ((kyy-ky0)/ky)**2) < 1
+    FF = FF * BB
+    
+    EE = ifft(ifftshift(FF)) 
+    GG = exp(-1j*(kx0*xx + ky0*yy))
+    EE = EE * GG    
+    return EE
+```
+
+
+
 ##### DHM examples: survey
+
+- Mann, C. J., Yu, L. F., Lo, C. M., & Kim, M. K. (2005). High-resolution quantitative phase-contrast microscopy by digital holography. *OPTICS EXPRESS*, *13*(22), 8693–8698. https://doi.org/10.1364/OPEX.13.008693
 
 <img src="DH_tutorial_md.assets/image-20220416215324683.png" alt="image-20220416215324683"  />
 
 
 
-- **Figure 4.** DHM phase shift image of human [red blood cells](https://en.wikipedia.org/wiki/Red_blood_cells).
+- Rappaz, B., Barbul, A., Hoffmann, A., Boss, D., Korenstein, R., Depeursinge, C., Magistretti, P. J., & Marquet, P. (2009). Spatial analysis of erythrocyte membrane fluctuations by digital holographic microscopy. *Blood Cells, Molecules, and Diseases*, *42*(3), 228–232. https://doi.org/10.1016/j.bcmd.2009.01.018
 
-<img src="DH_tutorial_md.assets/220px-DHM_image_of_human_red_blood_cells.jpg" alt="img" style="zoom:150%;" />
+<img src="DH_tutorial_md.assets/image-20220427092446148.png" alt="image-20220427092446148" style="zoom: 67%;" />
 
 
 
@@ -339,13 +360,14 @@ $$
 
 
 
-
-
 ## Multi-Wavelength Background
 
 ##### multi-wavelength: motivation
 
 ##### multi-wavelength: history
+
+- HILDEBRAND, B. P., & HAINES, K. A. (1967). MULTIPLE-WAVELENGTH AND MULTIPLE-SOURCE HOLOGRAPHY APPLIED TO CONTOUR GENERATION. *JOURNAL OF THE OPTICAL SOCIETY OF AMERICA*, *57*(2), 155+. https://doi.org/10.1364/JOSA.57.000155
+- Cheng, Y.-Y., & Wyant, J. C. (1984). Two-wavelength phase shifting interferometry. *Appl. Opt.*, *23*(24), 4539–4543. https://doi.org/10.1364/AO.23.004539
 
 ##### wavelength-scanning: history
 
@@ -381,11 +403,41 @@ $$
 
 ##### 2WOPU process
 
+<img src="DH_tutorial_md.assets/image-20220427141039405.png" alt="image-20220427141039405" style="zoom:50%;" />
+
 ##### sample python code
 
 ##### 2WOPU examples: mkkim
 
+- Khmaladze, A., Kim, M., & Lo, C.-M. (2008). Phase imaging of cells by simultaneous dual-wavelength reflection digital holography. *OPTICS EXPRESS*, *16*(15), 10900–10911. https://doi.org/10.1364/OE.16.010900
+
+<img src="DH_tutorial_md.assets/image-20220427141107699.png" alt="image-20220427141107699" style="zoom:50%;" />
+
+<img src="DH_tutorial_md.assets/image-20220427141311148.png" alt="image-20220427141311148" style="zoom:50%;" />
+
+- Heimbeck, M. S., Kim, M. K., Gregory, D. A., & Everitt, H. O. (2011). Terahertz digital holography using angular spectrum and dual wavelength reconstruction methods. *OPTICS EXPRESS*, *19*(10), 9192–9200. https://doi.org/10.1364/OE.19.009192
+
+<img src="DH_tutorial_md.assets/image-20220427141355546.png" alt="image-20220427141355546"  />
+
+> Fig.  6.  Steps  in  the  reconstruction  of  the  phase  object  using  dual  wavelength  reconstruction: photograph  (a),  holograms  at  680  and  725  GHz  (b-c),  amplitude  reconstructions  (d-e),  phase reconstructions   (f-g),   unwrapped   reconstruction   (h),   cross-section   through   center   of unwrappred reconstruction (i), pseudo 3D perspective of the unwrapped reconstruction (j).
+
 ##### 2WOPU examples: survey
+
+- Rinehart, M. T., Shaked, N. T., Jenness, N. J., Clark, R. L., & Wax, A. (2010). Simultaneous two-wavelength transmission quantitative phase microscopy with a color camera. *OPTICS LETTERS*, *35*(15), 2612–2614. https://doi.org/10.1364/OL.35.002612
+
+<img src="DH_tutorial_md.assets/image-20220427143118397.png" alt="image-20220427143118397" style="zoom:50%;" />
+
+<img src="DH_tutorial_md.assets/image-20220427143143483.png" alt="image-20220427143143483" style="zoom: 50%;" />
+
+> Fig. 3. (Color online) Microstructure OPD maps and profiles: (a) 532 nm OPD map after quality-map guided unwrapping, 15 μm lateral scale bar; (b) 532 nm OPD map after two-wavelength unwrapping, 15 μm lateral scale bar; (c) incorrect object height profile, from the dotted line in (a); (d) object height profile from two-wavelength unwrapping, from the dotted line in (b). The quantitative height measurements ob-tained from QPM agree with the SEM images in Fig. 2.
+
+- Lee, Y., Ito, Y., Tahara, T., Inoue, J., Xia, P., Awatsuji, Y., Nishio, K., Ura, S., & Matoba, O. (2014). Single-shot dual-wavelength phase unwrapping in parallel phase-shifting digital holography. *OPTICS LETTERS*, *39*(8), 2374–2377. https://doi.org/10.1364/OL.39.002374
+
+<img src="DH_tutorial_md.assets/image-20220427144722747.png" alt="image-20220427144722747" style="zoom:50%;" />
+
+<img src="DH_tutorial_md.assets/image-20220427144827974.png" alt="image-20220427144827974" style="zoom:50%;" />
+
+> Space bandwidths. Proposed method using (a) parallel two-step phase-shifting interferometry and (b) angular multi-plexing technique.
 
 
 
@@ -454,7 +506,27 @@ $$
 
 ##### MWOPU examples: mkkim
 
+- Kim, M. K. (2022). Phase microscopy and surface profilometry by digital holography. *Light: Advanced Manufacturing*, *3*(1), 1. https://doi.org/10.37188/lam.2022.019
+
+<img src="DH_tutorial_md.assets/image-20220427174004493.png" alt="image-20220427174004493" style="zoom:67%;" />
+
+
+
+
+
 ##### MWOPU examples: survey
+
+- Wagner, Chr., Osten, W., & Seebacher, S. (2000). Direct shape measurement by digital wavefront reconstruction and multi-wavelength contouring. *Optical Engineering*, *39*(1), 79–85. https://doi.org/10.1117/1.602338
+
+<img src="DH_tutorial_md.assets/image-20220427150423735.png" alt="image-20220427150423735" style="zoom:33%;" />
+
+- Wada, A., Kato, M., & Ishii, Y. (2008). Large step-height measurements using multiple-wavelength holographic interferometry with tunable laser diodes. *JOURNAL OF THE OPTICAL SOCIETY OF AMERICA A-OPTICS IMAGE SCIENCE AND VISION*, *25*(12), 3013–3020. https://doi.org/10.1364/JOSAA.25.003013
+
+<img src="DH_tutorial_md.assets/image-20220427172539858.png" alt="image-20220427172539858" style="zoom: 80%;" />
+
+<img src="DH_tutorial_md.assets/image-20220427172633113.png" alt="image-20220427172633113" style="zoom: 50%;" />
+
+> Object height calculated from $\Delta\phi_6(\Lambda_6=2.5\ \textrm{mm})$. (a) The entire distribution. (b) Plot of the object heights along the black line in panel (a) as a function of lateral position.
 
 
 
@@ -672,6 +744,7 @@ $$
 - [ ] beta scan
 - [ ] diffraction
 - [ ] MWDH biblio
+- [ ] simulations
 
 
 
