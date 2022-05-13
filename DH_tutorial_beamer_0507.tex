@@ -1,0 +1,210 @@
+\documentclass[t, aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+
+\usetheme[progressbar=frametitle]{Madrid}
+\usecolortheme{crane}
+\setbeamertemplate{frame numbering}[fraction]
+
+\usefonttheme[onlymath]{serif}
+
+%\usepackage[numbers]{natbib}
+\usepackage{bibentry}
+%\nobibliography*
+%\usepackage[style=phys]{biblatex}
+%\addbibresource{biblio.bib}
+
+\title{Multi-Wavelength Techniques in Digital Holography: Tutorial}
+\author{Myung K Kim}
+\institute{Dept of Physics, University of South Florida, Tampa, FL USA 33620}
+\date{August 2022}
+
+
+\begin{document}
+
+\begin{frame}
+	Optica: Digital Holography and Three-Dimensional Imaging\\
+	Cambridge University, Cambridge, UK
+	\titlepage
+\end{frame}
+
+
+\begin{frame}{abstract}
+Basic principles and techniques will be described for multi-wavelength or multi-illumination-angle methods for extending capabilities of digital holography for surface profilomentry by optical phase unwrapping and topography/tomography by snthesized optical coherence.
+
+\[ 
+E_P = \frac{i}{4\pi}E_Se^{-i\omega t} \int_\Sigma d\Sigma \frac{\exp\left[ik(r+r')\right]}{rr'} (\hat{\textbf r} - \hat{\textbf r'}) \cdot \hat{\textbf n} 
+\]
+
+\end{frame}
+
+
+\begin{frame}[allowframebreaks]{Table of Contents}
+	\tableofcontents[hideallsubsections]
+\end{frame}
+
+
+\section{holography background}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item holography cartoon
+		\item basic theoretical description of holography
+		\item highlights in history of analog holography 
+		\item digital holography cartoon
+		\item highlights in history of digital holography
+	\end{itemize}
+\end{frame}
+
+
+\section{digital holography system}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item theory of digital holography
+		\item interferometer configurations
+		\item apparatus and hardware
+		\item software for experimental control
+		\item software for numerical calculation
+	\end{itemize}
+\end{frame}
+
+
+\section{multi-wavelength background}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item cartoon: two-wavelength interference
+		\item multi-wavelength interferometric methods: historical examples
+		\item multi-wavelength analog holographic interference: examples
+	\end{itemize}
+\end{frame}
+
+
+\section{two-wavelength DHQPM}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item theory and simulation of two-wavelength interference
+		\item two-wavelength DHQPM: basic expts
+		\item two-wavelength holography and interferography: examples
+		\item methods of multi-wavelength generation
+	\end{itemize}
+\end{frame}
+
+
+\section{multi-wavelength DHQPM}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item theory and simulation of multi-wavelength QPM
+		\item multi-wavelength QPM: basic expts
+		\item multi-wavelength QPM: examples		
+	\end{itemize}
+\end{frame}
+
+
+\section{wavelength scanning DIH}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item theory of wavelength scanning DIH
+		\item wavelength scanning DIH: basic expts
+		\item wavelength scanning DIH: examples
+		\item comparison with full field OCT
+	\end{itemize}
+\end{frame}
+
+
+\section{methods of multi-wavelength generagtion}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item multiple lasers
+		\item tunable laser
+		\item refractive index
+		\item angle tuning
+	\end{itemize}
+\end{frame}
+
+
+\section{multi-angle DHQPM - gammascan}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item gamma scan: basic expts
+		\item gamma scan: examples
+	\end{itemize}
+\end{frame}
+
+
+\section{angle scanning DIH - alphascan}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item alpha scan: basic expts
+		\item alpha scan: examples
+	\end{itemize}
+\end{frame}
+
+
+\section{multi-wavlength/angle holography system}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item optomechanical system
+		\item software for holographic data acquisition
+		\item software for numerical calculation
+	\end{itemize}
+\end{frame}
+
+
+\section{further development}
+
+\begin{frame}{\secname}
+	\begin{itemize}
+		\item current state of the art
+		\item current issues
+		\item competing trending technologies
+		\item potential solutions and advantages
+	\end{itemize}
+	\vspace{1 cm}
+\end{frame}
+
+
+\section{references}
+
+\begin{frame}{bibliography}
+this is 2013 \cite{Kim2013} \\
+
+this is 2020 ... \bibentry{Kim2020}
+%this is 2020 ... \fullcite{Yu2014}
+
+\bibliographystyle{bibstyles/osajnl}
+%\bibliographystyle{plain}
+%\bibliography{biblio.bib}
+
+\end{frame}
+
+
+\frame{}
+\bibliography{biblio.bib}
+
+
+\begin{frame}{todolist}
+	\begin{itemize}
+		\item list of primary papers on multi-wavelength methods
+		\item search secondary papers and recent development
+		\item start bibliography
+		\item start holography background
+		\item start first Inkspace/Gimp figures
+		\item add slides ...
+	\end{itemize}
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
