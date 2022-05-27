@@ -897,10 +897,45 @@ $$
 
 ## todolist
 
-- [ ] add slide details
-- [ ] start beamer
-- [ ] figures work
-- [ ] make beamer
+- [ ] remake/update figures
+- [ ] figure legends & comments
+- [ ] edit pages
+  - [ ] multi-wavelength generation
+  - [ ] further development
+
+- [ ] multi-page frames
+- [ ] pseudo-codes
+  - [ ] ASDiffract
+  - [ ] PSDH
+  - [ ] OXDH
+  - [ ] 2WOPU
+  - [ ] h-MWOPU
+  - [ ] c-MWOPU
+  - [ ] MAOPU
+  - [ ] WSDIH
+
+- [ ] highlight color text 
+- [ ] comment w call-out box
+- [ ] insert video
+- [ ] page: MWDH motivation
+- [ ] animate equations
+- [ ] do theory
+  - [ ] c-MWOPU
+  - [ ] MAOPU
+  - [ ] WSDIH
+
+- [ ] do simulations
+- [ ] combine theory & simulation
+  - [ ] 2WOPU
+  - [ ] 3WOPU
+  - [ ] h-MWOPU
+  - [ ] alpha requirement
+  - [ ] c-MWOPU
+  - [ ] MAOPU
+  - [ ] alpha requirement
+  - [ ] WSDIH
+
+- [ ] LAM paper summaries
 
 
 
