@@ -638,6 +638,8 @@ $$
 
 
 
+
+
 ##### WSOPU process
 
 ##### sample python code
@@ -895,53 +897,54 @@ $$
 
 
 
-## todolist
+## todolist: 6/2/2022
 
-- [ ] remake/update figures
-- [ ] figure legends & comments
-- [ ] edit pages
-  - [ ] multi-wavelength generation
-  - [ ] further development
-
-- [ ] multi-page frames
-- [ ] pseudo-codes
-  - [ ] ASDiffract
-  - [ ] PSDH
-  - [ ] OXDH
-  - [ ] 2WOPU
-  - [ ] h-MWOPU
-  - [ ] c-MWOPU
-  - [ ] MAOPU
-  - [ ] WSDIH
-
-- [ ] highlight color text 
-- [ ] comment w call-out box
-- [ ] insert video
-- [ ] page: MWDH motivation
-- [ ] animate equations
-- [ ] do theory
-  - [ ] c-MWOPU
-  - [ ] MAOPU
-  - [ ] WSDIH
-
-- [ ] do simulations
-- [ ] combine theory & simulation
-  - [ ] 2WOPU
-  - [ ] 3WOPU
-  - [ ] h-MWOPU
-  - [ ] alpha requirement
-  - [ ] c-MWOPU
-  - [ ] MAOPU
-  - [ ] alpha requirement
-  - [ ] WSDIH
-
-- [ ] LAM paper summaries
+- [x] h-mwopu theory & sim
+- [x] h-mwopu example
+- [ ] c-mwopu theory & sim
+- [x] c-mwopu example
+- [ ] wsdih theory & sim
+- [x] wsdih example
+- [ ] wlen vs ang theory
+- [x] h-maopu example
+- [x] c-maopu example
+- [x] asdih example
+- [ ] compare h-opu vs c-opu vs dih theory & sim
+- [ ] compare h-maopu vs c-maopu vs asdih expt
 
 
 
 
 
+### c-mwopu theory & sim
 
+$$
+\Phi_n = \left[2\pi\frac{Z}{\lambda_n}\right]//2\pi \\
+\Phi_{12} = \Phi_1 - \Phi_2 = 2\pi Z \left[\frac{1}{\lambda_1}-\frac{1}{\lambda_2}\right] = 2\pi\frac{Z}{\Lambda_{12}} \qquad [\Lambda_{12}>Z_{\max}]
+$$
+
+- choose $\displaystyle\frac{1}{\lambda_n}$  at uniform intervals: 
+
+$$
+\frac{1}{\lambda_1}-\frac{1}{\lambda_2}=\frac{1}{\lambda_2}-\frac{1}{\lambda_3}=\cdots\equiv\frac{1}{\Lambda}
+$$
+
+$$
+\Phi_{12}=\Phi_1 - \Phi_2 = 2\pi Z \left[ \frac{1}{\lambda_1} - \frac{1}{\lambda_2} \right] = 2\pi \frac{Z}{\Lambda} \\
+\Phi_{23}=\Phi_2 - \Phi_3 = 2\pi Z \left[ \frac{1}{\lambda_2} - \frac{1}{\lambda_3} \right] = 2\pi \frac{Z}{\Lambda} \\
+\cdots \\
+\Phi_{n,n+1}=\Phi_n - \Phi_{n+1} = 2\pi Z \left[ \frac{1}{\lambda_n} - \frac{1}{\lambda_{n+1}} \right] = 2\pi \frac{Z}{\Lambda} \\
+\\
+\tilde\Phi_{1n}=\Phi_{12} + \Phi_{23} + \cdots +\Phi_{n,n+1} = \Phi_1 - \Phi_{n+1} = 2\pi Z\left[\frac{1}{\lambda_1} - \frac{1}{\lambda_{n+1}} \right] = 2\pi n\frac{Z}{\Lambda} \\
+\\
+\tilde Z_{1n} = \frac{\Lambda}{n}\frac{\tilde\Phi_{1n}}{2\pi}
+$$
+
+- noise in $\tilde Z_{1n}$:
+
+$$
+\delta\tilde Z_{1n} = \frac{\Lambda}{2\pi n}\sqrt{2}\ 2\pi\epsilon = \frac{\sqrt{2}\epsilon\Lambda}{n} = \frac{\delta Z_{12}}{n} = \delta Z_{1,n+1}
+$$
 
 
 

@@ -473,7 +473,7 @@ def asdiffract(EE):
 		\end{column}
 		\begin{column}{0.5\textwidth}		
 		\begin{itemize}
-			\item[a)] $ I_O $
+			\item[a)] $ I_0 $
 			\item[b)] $ I_1 $
 			\item[c)] $ I_2 $
 			\item[d)] $ I_3 $
@@ -647,7 +647,7 @@ wavelength-scanning: history
 		\begin{column}{0.6\textwidth}
 			\vspace{-5 mm}
 			\begin{figure}
-				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427141039405}
+				\includegraphics[height=70 mm]{DH_tutorial_md.assets/image-20220427215653500}
 			\end{figure}
 		\end{column}
 		\begin{column}{0.4\textwidth}
@@ -657,6 +657,11 @@ wavelength-scanning: history
 				\item[c) ] $ Z_2(x) $
 				\item[c) ] $ Z_{12}(x) $
 			\end{itemize}
+\vspace{5 mm}
+$ Z_{\max}=15\ \mu m $
+$ \lambda_1=0.635\ \mu m,\ \lambda_2 = 0.600\ \mu m $
+$ \Lambda_{12} = 10.886\ \mu m $
+$ \epsilon = 3\ \%,\ \delta Z_{12} = 0.462\ \mu m $
 		\end{column}
 	\end{columns}
 \end{frame}
@@ -827,59 +832,121 @@ aaa
 \end{frame}
 
 
-\begin{frame}[allowframebreaks]{noise reduction by 3WOPU}
-	\begin{gather*}
-Z_{12\_3}(x,y) = \textrm{round}\left[\frac{Z_{12}(x,y)}{\Lambda_{13}}\right] \Lambda_{13} + Z_{13}(x,y) \\
-Z_{12\_3} + \delta Z_{12\_3} = \textrm{round}\left[\frac{Z_{12} + \delta Z_{12}}{\Lambda_{13}} \right] \Lambda_{13} + (Z_{13} + \delta Z_{13}) \\
-\delta Z_{12\_3} = \Delta\cdot \Lambda_{13} + \delta Z_{13} = \Delta\cdot\Lambda_{13} + \sqrt{2}\ \Lambda_{13}\ \epsilon \\
-	\end{gather*}
-$\Delta\cdot\Lambda_{13}$: 		spikes of height $\Lambda_{13}$ scattered near $\textrm{round()}$ boundaries within $\delta Z_{12}$ \\
-	\begin{itemize}
-		\item require
-		\begin{gather*}
-\frac{\delta Z_{12}}{\Lambda_{13}} = \sqrt{2}\ \epsilon\ \frac{\Lambda_{12}}{\Lambda_{13}} \ll 1 \\
-\alpha = \frac{\Lambda_{13}}{\Lambda_{12}} \gg \sqrt{2}\ \epsilon \\
-		\end{gather*}
-		\item despiking
-		\begin{gather*}
-Z_{12\_3} - Z_{12} = s\ \Delta Z \\
-\bar{Z}_{12\_3} = Z_{12\_3} - s\ \Lambda_{13}\cdot\left(\Delta Z \gg \delta Z_{13}\right)\  \\
-\delta\bar{Z}_{12\_3} = \delta Z_{13} = \sqrt{2}\ \Lambda_{13}\ \epsilon
-		\end{gather*}
-	\end{itemize}
+\begin{frame}{3WOPU}
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\vspace{-5 mm}
+			\begin{figure}
+				\includegraphics[height=65 mm]{DH_tutorial_md.assets/sim_3wopu}
+			\end{figure}
+		\end{column}
+		\begin{column}{.6\textwidth}
+\vspace{-5 mm}
+\begin{small}
+\[ \lambda_1 = 0.635\ \mu m,\ \lambda_2=0.600\ \mu m,\ \lambda_3=0.530\ \mu m \]
+\[ \Lambda_{12}=10.886\ \mu m,\ \Lambda_{13}=3.205\ \mu m \]
+\end{small}
+\pause
+\[ Y_{12\_3} = \textrm{round}\left[\frac{Z_{12}}{\Lambda_{13}}\right]\Lambda_{13} \]
+\[ Z'_{12\_3} = Y_{12} + Z_{13} \]
+		\pause
+\[ Z'_{12\_3} + \delta Z_{12\_3} = \textrm{round}\left[\frac{Z_{12} + \delta Z_{12}}{\Lambda_{13}} \right] \Lambda_{13} + (Z_{13} + \delta Z_{13}) \]
+\[ \delta Z_{12\_3} = \Delta\cdot \Lambda_{13} + \delta Z_{13} = \Delta\cdot\Lambda_{13} + \sqrt{2}\ \Lambda_{13}\ \epsilon \] 
+$\Delta\cdot\Lambda_{13}$: 		spikes of height $\Lambda_{13}$ scattered near $\textrm{round()}$ boundaries within $\delta Z_{12}$ 
+		\end{column}
+	\end{columns}
 \end{frame}
 
 
-\begin{frame}[allowframebreaks]{hierarchical MWOPU}
-	\begin{gather*}
-\{\lambda_n\} = \lambda_1,\ \lambda_2,\ \lambda_3,\ \cdots \\
-E_n(x,y) = a_n(x,y)\cdot\exp[i\Phi_n(x,y)] \\
-n \ge 2:\quad E_{1n}(x,y) = E_1\cdot E_n^* = a_{1n}(x,y)\cdot\exp[i\Phi_{1n}(x,y)] \\
-\Phi_{1n}(x,y) = (\Phi_1 - \Phi_2)//2\pi = \left[ 2\pi\ \frac{Z(x,y)}{\Lambda_{1n}} \right]\ //\ 2\pi \\
-\Lambda_{1n} = -\frac{\lambda_1\lambda_n}{\lambda_1 - \lambda_n} \\
-Z_{1n}(x,y) = \Lambda_{1n}\ \frac{\Phi_{1n}(x,y)}{2\pi} \\
-\delta Z_{1n} = \sqrt{2}\ \Lambda_{1n}\ \epsilon 
-	\end{gather*}
-	\begin{gather*}
-n \ge 3:\quad Z_{12\_n}(x,y) = \textrm{round}\left[\frac{Z_{12\_(n-1)}(x,y)}{\Lambda_{1n}} \right]\cdot\Lambda_{1n} + Z_{1n}(x,y) \\
-\delta Z_{12\_n} = \Delta\cdot\Lambda_{1n} + \delta Z_{1n} \\
-Z_{12\_n} - Z_{12\_(n-1)} = s\ \Delta Z \\
-\bar{Z}_{12\_n} = Z_{12\_n} - s\ \Lambda_{1n}\cdot(\Delta Z \gg \delta Z_{1n}) \\
-\delta\bar{Z}_{12\_n} = \delta Z_{1n} = \sqrt{2}\cdot\Lambda_{1n}\epsilon
-	\end{gather*}
+\begin{frame}{noise reduction by 3WOPU}
+	\begin{columns}
+		\begin{column}{.4\textwidth}
+			\vspace{-5 mm}
+			\begin{figure}
+				\includegraphics[height=65 mm]{DH_tutorial_md.assets/sim_3wopu}
+			\end{figure}
+		\end{column}
+		\begin{column}{.6\textwidth}
+\textbf{require: }
+\[ \frac{\delta Z_{12}}{\Lambda_{13}} = \sqrt{2}\ \epsilon\ \frac{\Lambda_{12}}{\Lambda_{13}} \ll 1 \]
+\[ \alpha = \frac{\Lambda_{13}}{\Lambda_{12}} \gg \sqrt{2}\ \epsilon \]
+\pause
+\textbf{despiking: }
+\[ Z'_{12\_3} - Z_{12} = s\cdot\Delta Z \]
+\[ Z_{12\_3} = Z'_{12\_3} - s\cdot\Lambda_{13}\cdot\left(\Delta Z \gg \delta Z_{13}\right)\  \]
+\[ \delta Z_{12\_3} = \delta Z_{13} = \sqrt{2}\ \Lambda_{13}\ \epsilon \]
+		\end{column}
+	\end{columns}
 \end{frame}
 
 
-\begin{frame}[allowframebreaks]{h-MWOPU process}
-	\begin{figure}
-		\includegraphics[height=50 mm]{DH_tutorial_md.assets/image-20220427215653500}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[height=50 mm]{DH_tutorial_md.assets/image-20220427215846786}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[height=50 mm]{DH_tutorial_md.assets/image-20220427215914117}
-	\end{figure}
+\begin{frame}{hierarchical MWOPU}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\vspace{-5 mm}
+			\begin{figure}
+				\includegraphics[height=65 mm]{DH_tutorial_md.assets/image-20220427215846786}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+\[ \{\lambda_n\} = \lambda_1,\ \lambda_2,\ \lambda_3,\ \cdots \]
+\[ E_n(x,y) = a_n(x,y)\cdot\exp[i\Phi_n(x,y)] \]
+\[ n \ge 2:\quad E_{1n}(x,y) = E_1\cdot E_n^* = a_{1n}(x,y)\cdot\exp[i\Phi_{1n}(x,y)] \]
+\[ \Phi_{1n} = (\Phi_1 - \Phi_n)//2\pi = \left[ 2\pi\ \frac{Z}{\Lambda_{1n}} \right]\ //\ 2\pi \]
+\[ \Lambda_{1n} = -\frac{\lambda_1\lambda_n}{\lambda_1 - \lambda_n} \]
+\[ Z_{1n} = \Lambda_{1n}\ \frac{\Phi_{1n}}{2\pi} \]
+\[ \delta Z_{1n} = \sqrt{2}\ \Lambda_{1n}\ \epsilon \]
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{hierarchical MWOPU}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\vspace{-5 mm}
+			\begin{figure}
+				\includegraphics[height=65 mm]{DH_tutorial_md.assets/image-20220427215846786}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+\[ n \ge 3:\quad Y_{12\_n}=\textrm{round}\left[\frac{Z_{12\_(n-1)}}{\Lambda_{1n}}\right]\Lambda_{1n} \]
+\[ Z'_{12\_n} = Y_{12\_n} + Z_{1n} \]
+\[ \delta Z_{12\_n} = \Delta\cdot\Lambda_{1n} + \delta Z_{1n} \]
+\[ Z'_{12\_n} - Z_{12\_(n-1)} = s\cdot \Delta Z \]
+\[ Z_{12\_n} = Z'_{12\_n} - s\cdot\Lambda_{1n}\cdot(\Delta Z \gg \delta Z_{1n}) \]
+\[ \delta Z_{12\_n} = \delta Z_{1n} = \sqrt{2}\cdot\Lambda_{1n}\epsilon \]
+\begin{small}
+\hrulefill \\
+$ \epsilon=3\ \%,\ \alpha=0.25 $ \\
+$ \Lambda_{12}=2000\ \mu m,\ N=5,\ \Lambda_{15}=31.250\ \mu m $
+\end{small}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{h-MWOPU and stepping factor $\alpha$}
+	\begin{columns}
+		\begin{column}{0.7\textwidth}
+			\vspace{-5 mm}
+			\begin{figure}
+				\includegraphics[height=60 mm]{DH_tutorial_md.assets/image-20220427215914117}
+			\end{figure}
+		\end{column}
+		\begin{column}{0.3\textwidth}
+\vspace{5 mm}
+\textbf{large noise: } $\epsilon=7\ \% $ \\
+$ $ \\
+a) fast step: \\
+$ \quad \alpha=0.25,\ N=5 $ \\ 
+$ \quad\Lambda_{15}=31.25\ \mu m $ \\
+$ $ \\
+a) slow step: \\
+$ \quad \alpha=0.50,\ N=8 $ \\ 
+$ \quad\Lambda_{18}=31.25\ \mu m $ \\
+		\end{column}
+	\end{columns}
 \end{frame}
 
 
@@ -950,22 +1017,67 @@ aaa
 \end{frame}
 
 
-\begin{frame}[allowframebreaks]{h-MWOPU example}
-Kim, M. K. (2022). Phase microscopy and surface profilometry by digital holography. *Light: Advanced Manufacturing*, *3*(1), 1.
+\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
+	\vspace{-3 mm}
+	\small Light: Adv Manufacturing, 3, 1 (2022)
+	\begin{columns}
+		\begin{column}{.47\textwidth}
+			\begin{figure}
+				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427214520872}
+			\end{figure}
+		\end{column}
+		\begin{column}{.28\textwidth}
+			\begin{figure}
+				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427214628422}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
+			\begin{itemize}
+				\item[a) ] $ \Phi_1(x,y) $
+				\item[b) ] $ \Phi_2(x,y) $
+				\item[c) ] $ Z_{12}(x,y) $
+				\item[d) ] $ Z_{12\_3}(x,y) $
+				\item[e) ] $ Z_{12\_4}(x,y) $
+				\item[f) ] $ Z_{\textrm{proc}}(x,y) $
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
+	\vspace{-3 mm}
+	\small Light: Adv Manufacturing, 3, 1 (2022)
+	\begin{columns}
+		\begin{column}{.47\textwidth}
+			\begin{figure}
+				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427214715153}
+			\end{figure}
+		\end{column}
+		\begin{column}{.28\textwidth}
+			\begin{figure}
+				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215024923}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
+			\begin{itemize}
+				\item[a) ] $ \Phi_1(x,y) $
+				\item[b) ] $ \Phi_2(x,y) $
+				\item[c) ] $ Z_{12}(x,y) $
+				\item[d) ] $ Z_{12\_3}(x,y) $
+				\item[e) ] $ Z_{12\_4}(x,y) $
+				\item[f) ] $ Z_{\textrm{proc}}(x,y) $
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
+	\vspace{-3 mm}
+	\small Light: Adv Manufacturing, 3, 1 (2022)
 	\begin{figure}
-		\includegraphics[height=40 mm]{DH_tutorial_md.assets/image-20220427214520872}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[height=50 mm]{DH_tutorial_md.assets/image-20220427214628422}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[height=50 mm]{DH_tutorial_md.assets/image-20220427214715153}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[height=50 mm]{DH_tutorial_md.assets/image-20220427215024923}
-	\end{figure}
-	\begin{figure}
-		\includegraphics[height=65 mm]{DH_tutorial_md.assets/image-20220427215138931}
+		\includegraphics[height=60 mm]{DH_tutorial_md.assets/image-20220427215138931_a}
 	\end{figure}
 \end{frame}
 
@@ -1042,16 +1154,26 @@ aaa
 
 \begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
 	\vspace{-3 mm}
-	\small Light: Adv Manufacturing 3, 1 (2022)
+	\small Light: Adv Manufacturing, 3, 1 (2022)
 	\begin{columns}
-		\begin{column}{.6\textwidth}
+		\begin{column}{.47\textwidth}
 			\begin{figure}
-				\includegraphics[height=40 mm]{DH_tutorial_md.assets/image-20220427215312948}
+				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427215312948}
 			\end{figure}
 		\end{column}
-		\begin{column}{.4\textwidth}
+		\begin{column}{.28\textwidth}
+			\begin{figure}
+				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215358192}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
 			\begin{itemize}
-				\item aaa
+				\item[a) ] $ \Phi_1(x,y) $
+				\item[b) ] $ \Phi_2(x,y) $
+				\item[c) ] $ Z_{12}(x,y) $
+				\item[d) ] $ Z_{12\_3}(x,y) $
+				\item[e) ] $ Z_{12\_8}(x,y) $
+				\item[f) ] $ Z_{\textrm{proc}}(x,y) $
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -1060,16 +1182,26 @@ aaa
 
 \begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
 	\vspace{-3 mm}
-	\small Light: Adv Manufacturing 3, 1 (2022)
+	\small Light: Adv Manufacturing, 3, 1 (2022)
 	\begin{columns}
-		\begin{column}{.6\textwidth}
+		\begin{column}{.47\textwidth}
 			\begin{figure}
-				\includegraphics[height=40 mm]{DH_tutorial_md.assets/image-20220427215358192}
+				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427215431949}
 			\end{figure}
 		\end{column}
-		\begin{column}{.4\textwidth}
+		\begin{column}{.28\textwidth}
+			\begin{figure}
+				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215457707}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
 			\begin{itemize}
-				\item aaa
+				\item[a) ] $ \Phi_1(x,y) $
+				\item[b) ] $ \Phi_2(x,y) $
+				\item[c) ] $ Z_{12}(x,y) $
+				\item[d) ] $ Z_{12\_3}(x,y) $
+				\item[e) ] $ Z_{12\_8}(x,y) $
+				\item[f) ] $ Z_{\textrm{proc}}(x,y) $
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -1078,60 +1210,28 @@ aaa
 
 \begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
 	\vspace{-3 mm}
-	\small Light: Adv Manufacturing 3, 1 (2022)
+	\small Light: Adv Manufacturing, 3, 1 (2022)
 	\begin{columns}
-		\begin{column}{.6\textwidth}
+		\begin{column}{.47\textwidth}
+%			\begin{figure}
+%				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427215431949}
+%			\end{figure}
+		\end{column}
+		\begin{column}{.28\textwidth}
+			$ \alpha=0.125 $ \\ instead of $ \alpha = 0.25 $
 			\begin{figure}
-				\includegraphics[height=40 mm]{DH_tutorial_md.assets/image-20220427215431949}
+				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215537750}
 			\end{figure}
 		\end{column}
-		\begin{column}{.4\textwidth}
+		\begin{column}{.25\textwidth}
 			\begin{itemize}
-				\item aaa
+				\item[a) ] $ Z_{12}(x,y) $
+				\item[b) ] $ Z_{12\_3}(x,y) $
+				\item[c) ] $ Z_{12\_8}(x,y) $
+				\item[d) ] $ Z_{\textrm{proc}}(x,y) $
 			\end{itemize}
 		\end{column}
 	\end{columns}
-\end{frame}
-
-
-\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
-	\vspace{-3 mm}
-	\small Light: Adv Manufacturing 3, 1 (2022)
-	\begin{columns}
-		\begin{column}{.6\textwidth}
-			\begin{figure}
-				\includegraphics[height=40 mm]{DH_tutorial_md.assets/image-20220427215457707}
-			\end{figure}
-		\end{column}
-		\begin{column}{.4\textwidth}
-			\begin{itemize}
-				\item aaa
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
-	\vspace{-3 mm}
-	\small Light: Adv Manufacturing 3, 1 (2022)
-	\begin{columns}
-		\begin{column}{.6\textwidth}
-			\begin{figure}
-				\includegraphics[height=40 mm]{DH_tutorial_md.assets/image-20220427215537750}
-			\end{figure}
-		\end{column}
-		\begin{column}{.4\textwidth}
-			\begin{itemize}
-				\item aaa
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{h-MAOPU example}
-aaa
 \end{frame}
 
 
