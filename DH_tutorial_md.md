@@ -899,11 +899,14 @@ $$
 
 ## todolist: 6/2/2022
 
-- [x] h-mwopu theory & sim
+- [x] h-mwopu theory
+- [x] h-mwopu sim
 - [x] h-mwopu example
-- [ ] c-mwopu theory & sim
+- [x] c-mwopu theory 
+- [ ] c-mwopu sim
 - [x] c-mwopu example
-- [ ] wsdih theory & sim
+- [x] wsdih theory
+- [ ] wsdih sim
 - [x] wsdih example
 - [ ] wlen vs ang theory
 - [x] h-maopu example
@@ -920,7 +923,8 @@ $$
 
 $$
 \Phi_n = \left[2\pi\frac{Z}{\lambda_n}\right]//2\pi \\
-\Phi_{12} = \Phi_1 - \Phi_2 = 2\pi Z \left[\frac{1}{\lambda_1}-\frac{1}{\lambda_2}\right] = 2\pi\frac{Z}{\Lambda_{12}} \qquad [\Lambda_{12}>Z_{\max}]
+\Phi_{12} = \Phi_1 - \Phi_2 = 2\pi Z \left[\frac{1}{\lambda_1}-\frac{1}{\lambda_2}\right] = 2\pi\frac{Z}{\Lambda_{12}} \qquad [\Lambda_{12}>Z_{\max}] \\
+Z_{12} = \Lambda_{12}\frac{\Phi_{12}}{2\pi}
 $$
 
 - choose $\displaystyle\frac{1}{\lambda_n}$  at uniform intervals: 
@@ -945,6 +949,10 @@ $$
 $$
 \delta\tilde Z_{1n} = \frac{\Lambda}{2\pi n}\sqrt{2}\ 2\pi\epsilon = \frac{\sqrt{2}\epsilon\Lambda}{n} = \frac{\delta Z_{12}}{n} = \delta Z_{1,n+1}
 $$
+
+
+
+### wsdih theory
 
 
 

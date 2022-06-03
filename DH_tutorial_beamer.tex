@@ -1089,7 +1089,27 @@ aaa
 
 
 \begin{frame}{c-MWOPU theory}
-aaa
+%\[ \Phi_n = \left[ 2\pi\frac{Z}{\lambda_n} \right]//2\pi \]
+%\[ \Phi_{12} = \Phi_1 - \Phi_2 = 2\pi Z\left[ \frac{1}{\lambda_1} - \frac{1}{\lambda_2} \right] = 2\pi\frac{Z}{\Lambda_{12}} \hspace{5 mm} [\Lambda_{12} > Z_{\max}] \]
+%\[ Z_{12} = \Lambda_{12}\frac{\Phi_{12}}{2\pi} \]
+Choose $\displaystyle\frac{1}{\lambda_n}$ at uniform intervals:
+	\begin{small}
+\[ \frac{1}{\lambda_1}-\frac{1}{\lambda_2} = \frac{1}{\lambda_2}-\frac{1}{\lambda_3} = \cdots \equiv \frac{1}{\Lambda} \]
+\[ \Phi_{12} = \Phi_1-\Phi_2 = 2\pi Z\left[ \frac{1}{\lambda_1}-\frac{1}{\lambda_2} \right] = 2\pi\frac{Z}{\Lambda} \hspace{5 mm} [\Lambda_{12}>Z_{\max}] \]
+\[ \Phi_{23} = \Phi_2-\Phi_3 = 2\pi Z\left[ \frac{1}{\lambda_2}-\frac{1}{\lambda_3} \right] = 2\pi\frac{Z}{\Lambda} \]
+\[ \cdots \]
+\[ \Phi_{n,n+1} = \Phi_n-\Phi_{n+1} = 2\pi Z\left[ \frac{1}{\lambda_n}-\frac{1}{\lambda_{n+1}} \right] = 2\pi\frac{Z}{\Lambda} \]
+\[ \Psi_{1,n+1} = \Phi_{12}+\Phi_{23}+\cdots+\Phi_{n,n+1} = \Phi_1-\Phi_{n+1} = 2\pi Z\left[\frac{1}{\lambda_1}-\frac{1}{\lambda_{n+1}}\right] = 2\pi n\frac{Z}{\Lambda} \]
+	\end{small}
+%\[ Z_{1\_n} = \frac{\Lambda}{n}\frac{\Psi_{1,n+1}}{2\pi} \]
+\end{frame}
+
+
+\begin{frame}{c-MWOPU theory}
+\[ \Psi_{1,n+1} = 2\pi n\frac{Z}{\Lambda} \]
+\[ Z[\Psi_{1,n+1}] = \frac{\Lambda}{n}\frac{\Psi_{1,n+1}}{2\pi} \]
+noise in $Z[\Psi_{1,n+1}]$
+\[ \delta Z[\Psi_{1,n+1}] = \frac{\Lambda}{2\pi n}\sqrt{2}\ 2\pi\epsilon = \frac{\sqrt{2}\epsilon\Lambda}{n} = \frac{\delta Z_{12}}{n} \]
 \end{frame}
 
 
@@ -1110,6 +1130,170 @@ aaa
 		\begin{column}{.6\textwidth}
 			\begin{figure}
 				\includegraphics[height=55 mm]{DH_tutorial_md.assets/image-20220429165841610}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item aaa
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\section{WSDIH: wavelength-scanning synthesized low-coherence holography}
+\begin{frame}[c]
+	\centering\LARGE\textbf{\secname}
+\end{frame}
+
+
+\begin{frame}{WSDIH theory}
+object field at $\textbf r_P$: $ A(\textbf r_P) $ \\
+Huygens wavelet arriving at $\textbf r$: $ A(\textbf r_P)\exp(ik|\textbf r - \textbf r_P|) $ \\
+Field at $\textbf r$ for extended object: 
+\[ E_k(\textbf r) \sim \int A(\textbf r_P)\exp(ik|\textbf r - \textbf r_P|)\ d^3\textbf r_P \]
+Use a series of $k$'s and sum over all $E_k$'s: 
+\[ E(\textbf r) \sim \sum_k E_k(\textbf r_P) \sim \sum_k \int A(\textbf r_P)\exp(ik|\textbf r - \textbf r_P|)d^3\ \textbf r_P \]
+\[ \sim \int A(\textbf r_P)\delta(\textbf r - \textbf r_P)\ d^3\textbf r_P \]
+\[ \sim A(\textbf r) \]
+\end{frame}
+
+
+\begin{frame}{WSDIH process}
+	\begin{figure}
+		\includegraphics[height=65 mm]{DH_tutorial_md.assets/fig_12-28}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{WSDIH process}
+	\begin{figure}
+		\includegraphics[height=50 mm]{DH_tutorial_md.assets/fig_12-29}
+	\end{figure}
+	\begin{itemize}
+ 		\setlength{\itemindent}{15 mm}
+		\item[a) ] build-up of axial resolution with n = 1, 2, 4, 8, 20
+		\item[b) ] contour images of coin at 60 $\mu m$ axial intervals
+	\end{itemize}
+\end{frame}
+
+
+%\begin{frame}{WSDIH theory}
+%aaa
+%\end{frame}
+
+
+%\begin{frame}{WSDIH process}
+%aaa
+%\end{frame}
+
+
+\begin{frame}{WSDIH sample python code}
+aaa
+\end{frame}
+
+
+\begin{frame}{JC Marron \& KS Schroeder: Holographic laser-radar}
+	\vspace{-3 mm}
+	\small Opt Lett 18 385 (1993)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\includegraphics[width=50 mm]{DH_tutorial_md.assets/image-20220502221331902}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item aaa
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{A Dakoff, et al.: Microscopic three-dimensional imaging by digital interference holography}
+	\vspace{-3 mm}
+	\small J Elec. Imaging 12 643 (2003)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\includegraphics[height=55 mm]{DH_tutorial_md.assets/image-20220502222329616}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item[a) ] numeral 2 in the 2000 mintage mark of a penny, 1 x 1 mm$^2$
+				\item[b) ] fire ant's compound eye, 1 x 1 mm$^2$
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{MC Potcoava, et al.: In vitro imaging of ophthalmic tissue by digital interference holography}
+	\vspace{-3 mm}
+	\small J Mod Opt 57 115 (2010)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\includegraphics[width= 90 mm]{DH_tutorial_md.assets/image-20220502223428429}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			Reconstructed volume of the human optic nerve sample
+			\begin{itemize}
+				\item[a) ] FOV = 1100 x 1100 $\mu m^2 $
+				\item[b) ] y-z cross-sections, 1100 x 280 $\mu m^2 $
+				\item[c) ] x-z cross-sections, 280 x 1100 $\mu m^2 $
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{C Depeursinge, et al.: Submicrometer tomography of cells by multiple-wavelength digital holographic microscopy in reflection}
+	\vspace{-3 mm}
+	\small Opt Lett 34 653 (2009)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\includegraphics[height=55 mm]{DH_tutorial_md.assets/image-20220502223113698}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item aaa
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{L Xu, et al.: High-precision three-dimensional shape reconstruction via digital refocusing in multi-wavelength digital holography}
+	\vspace{-3 mm}
+	\small Appl Opt 51, 2958 (2012)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\includegraphics[width= 90 mm]{DH_tutorial_md.assets/image-20220506161850832}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item aaa
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{S Chen, et al.: Swept source digital holographic phase microscopy}
+	\vspace{-3 mm}
+	\small Opt Lett 41 665 (2016)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\includegraphics[width= 90 mm]{DH_tutorial_md.assets/image-20220506162020326}
 			\end{figure}
 		\end{column}
 		\begin{column}{.4\textwidth}
@@ -1263,139 +1447,6 @@ aaa
 		\begin{column}{.6\textwidth}
 			\begin{figure}
 				\includegraphics[width=90 mm]{DH_tutorial_md.assets/image-20220502140028547}
-			\end{figure}
-		\end{column}
-		\begin{column}{.4\textwidth}
-			\begin{itemize}
-				\item aaa
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\section{WSDIH: wavelength-scanning synthesized low-coherence holography}
-\begin{frame}[c]
-	\centering\LARGE\textbf{\secname}
-\end{frame}
-
-
-\begin{frame}{WSDIH theory}
-aaa
-\end{frame}
-
-
-\begin{frame}{WSDIH process}
-aaa
-\end{frame}
-
-
-\begin{frame}{WSDIH sample python code}
-aaa
-\end{frame}
-
-
-\begin{frame}{JC Marron \& KS Schroeder: Holographic laser-radar}
-	\vspace{-3 mm}
-	\small Opt Lett 18 385 (1993)
-	\begin{columns}
-		\begin{column}{.6\textwidth}
-			\begin{figure}
-				\includegraphics[width=50 mm]{DH_tutorial_md.assets/image-20220502221331902}
-			\end{figure}
-		\end{column}
-		\begin{column}{.4\textwidth}
-			\begin{itemize}
-				\item aaa
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{A Dakoff, et al.: Microscopic three-dimensional imaging by digital interference holography}
-	\vspace{-3 mm}
-	\small J Elec. Imaging 12 643 (2003)
-	\begin{columns}
-		\begin{column}{.6\textwidth}
-			\begin{figure}
-				\includegraphics[height=55 mm]{DH_tutorial_md.assets/image-20220502222329616}
-			\end{figure}
-		\end{column}
-		\begin{column}{.4\textwidth}
-			\begin{itemize}
-				\item[a) ] numeral 2 in the 2000 mintage mark of a penny, 1 x 1 mm$^2$
-				\item[b) ] fire ant's compound eye, 1 x 1 mm$^2$
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{MC Potcoava, et al.: In vitro imaging of ophthalmic tissue by digital interference holography}
-	\vspace{-3 mm}
-	\small J Mod Opt 57 115 (2010)
-	\begin{columns}
-		\begin{column}{.6\textwidth}
-			\begin{figure}
-				\includegraphics[width= 90 mm]{DH_tutorial_md.assets/image-20220502223428429}
-			\end{figure}
-		\end{column}
-		\begin{column}{.4\textwidth}
-			Reconstructed volume of the human optic nerve sample
-			\begin{itemize}
-				\item[a) ] FOV = 1100 x 1100 $\mu m^2 $
-				\item[b) ] y-z cross-sections, 1100 x 280 $\mu m^2 $
-				\item[c) ] x-z cross-sections, 280 x 1100 $\mu m^2 $
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{C Depeursinge, et al.: Submicrometer tomography of cells by multiple-wavelength digital holographic microscopy in reflection}
-	\vspace{-3 mm}
-	\small Opt Lett 34 653 (2009)
-	\begin{columns}
-		\begin{column}{.6\textwidth}
-			\begin{figure}
-				\includegraphics[height=55 mm]{DH_tutorial_md.assets/image-20220502223113698}
-			\end{figure}
-		\end{column}
-		\begin{column}{.4\textwidth}
-			\begin{itemize}
-				\item aaa
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{L Xu, et al.: High-precision three-dimensional shape reconstruction via digital refocusing in multi-wavelength digital holography}
-	\vspace{-3 mm}
-	\small Appl Opt 51, 2958 (2012)
-	\begin{columns}
-		\begin{column}{.6\textwidth}
-			\begin{figure}
-				\includegraphics[width= 90 mm]{DH_tutorial_md.assets/image-20220506161850832}
-			\end{figure}
-		\end{column}
-		\begin{column}{.4\textwidth}
-			\begin{itemize}
-				\item aaa
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{S Chen, et al.: Swept source digital holographic phase microscopy}
-	\vspace{-3 mm}
-	\small Opt Lett 41 665 (2016)
-	\begin{columns}
-		\begin{column}{.6\textwidth}
-			\begin{figure}
-				\includegraphics[width= 90 mm]{DH_tutorial_md.assets/image-20220506162020326}
 			\end{figure}
 		\end{column}
 		\begin{column}{.4\textwidth}
