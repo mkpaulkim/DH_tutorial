@@ -908,7 +908,7 @@ $$
 - [x] wsdih theory
 - [ ] wsdih sim
 - [x] wsdih example
-- [ ] wlen vs ang theory
+- [x] wlen vs ang theory
 - [x] h-maopu example
 - [x] c-maopu example
 - [x] asdih example
@@ -956,21 +956,9 @@ $$
 
 
 
+### compare h-opu vs c-opu vs dih theory & sim
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- 
 
 
 
