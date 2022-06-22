@@ -10,7 +10,6 @@
 \usepackage{multicol}
 \usepackage[absolute,overlay]{textpos}
 
-\usepackage{animate}
 \usepackage{bibentry}
 
 %\title{Multi-Wavelength Techniques in Digital Holography: Tutorial}
@@ -96,9 +95,6 @@ Basic principles and techniques will be described for multi-wavelength or multi-
 			\begin{itemize}
 				\item aberrations in electron microscope
 				\item optical demonstration
-				\item top: hologram
-				\item bottom left: the object
-				\item bottom right: reconstructed image
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -135,9 +131,7 @@ Basic principles and techniques will be described for multi-wavelength or multi-
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item electronically recorded hologram
-				\item digitally computed image
-				\item Fourier holography
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -155,9 +149,7 @@ Basic principles and techniques will be described for multi-wavelength or multi-
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item CCD recording of hologram
-				\item numerical reconstruction of image
-				\item Fresnel off-axis holography
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -175,8 +167,7 @@ Basic principles and techniques will be described for multi-wavelength or multi-
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item quantitative phase contrast image of pure phase object
-				\item nanometric resolution of optical path/height
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -187,97 +178,116 @@ Basic principles and techniques will be described for multi-wavelength or multi-
 	\begin{figure}
 		\includegraphics[width=4.0 in]{DH_tutorial_md.assets/image-20220415152931893}
 	\end{figure}	
-hologram recording:
-\[ I = |E_R + E_O|^2 = |E_R|^2 + |E_O|^2 +E_R^*E_O + E_RE_O^* \]
-\pause
-hologram reconstruction:
-\[ E'_RI = E'_R|E_R+E_O|^2 = E'_R|E_R|^2 + E'_R|E_O|^2 + E'_RE_R^*E_O + E'_RE_RE_O^* \]
+hologram recording \\
+	\begin{center}
+		$I = |E_R + E_O|^2 = |E_R|^2 + |E_O|^2 +E_R^*E_O + E_RE_O^*$
+	\end{center}
+	\pause
+hologram reconstruction \\
+	\begin{center}
+		$E'_RI = E'_R|E_R+E_O|^2 
+		=E'_R|E_R|^2 + E'_R|E_O|^2 + E'_RE_R^*E_O + E'_RE_RE_O^*$
+	\end{center}
 \end{frame}
 
 
 \begin{frame}{holography of plane waves}
 	\begin{figure}
-		\includegraphics[width=100 mm]{DH_tutorial_md.assets/diffract_planewave}
+		\includegraphics[width=4.0 in]{DH_tutorial_md.assets/diffract_planewave}
 	\end{figure}
 	\begin{itemize}
-		\item plane reference + plane object at angle
-		\item sine grating interference pattern
-		\item angle info encoded as grating frequency
+		\item aaa
 	\end{itemize}
 \end{frame}
 
 
 \begin{frame}{holography of spherical waves}
 	\begin{figure}
-		\includegraphics[width=100 mm]{DH_tutorial_md.assets/diffract_sphericalwave}
+		\includegraphics[width=4.0 in]{DH_tutorial_md.assets/diffract_sphericalwave}
 	\end{figure}
 	\begin{itemize}
-		\item plane reference + spherical wave from point object
-		\item Fresnel lens interference pattern
-		\item point object position encoded as Fresnel lens focus
+		\item aaa
 	\end{itemize}
 \end{frame}
 
 
 \begin{frame}{diffraction from a 2D aperture}
 	\begin{figure}
-		\includegraphics[height=40 mm]{DH_tutorial_md.assets/image-20220415162604622}
+		\includegraphics[height=1.5 in]{DH_tutorial_md.assets/image-20220415162604622}
 	\end{figure}
-Fresnel-Kirchoff diffraction theory: 
-\[ E(x,y;z) = -\frac{ik}{2\pi}\iint_{\Sigma_0} dx_0dy_0\,E_0(x_0,y_0)\frac{\exp(ikr)}{r} \]
+	\begin{gather*}
+E(x,y;z) = -\frac{ik}{2\pi}\iint_{\Sigma_0} dx_0dy_0\,E_0(x_0,y_0)\frac{\exp(ikr)}{r}
+	\end{gather*}
 \end{frame}
 
 
-\begin{frame}{HCM: Huygens Convoluton Method}
-\[ r = \sqrt{(x-x_0)^2+(y-y_0)^2+z^2} \] \\
-\pause
-\[ E(x,y;z) \approx -\frac{ik}{2\pi z} \iint_{\Sigma_0} dx_0dy_0\,E_0(x_0,y_0)\exp\left[ik\sqrt{(x-x_0)^2 + (y-y_0)^2 + z^2 }\right] \]
-\[ = E_0 \odot S_H \]
-\pause
-\[ \textbf{spherical wavefront} \qquad S_H(x,y;z) = - \frac{ik}{2\pi z} \exp\left[ik\sqrt{x^2+y^2+z^2}\right] \]
+\begin{frame}{Huygens convoluton method: HCM}	
+	\begin{gather*}	
+E(x,y;z) \approx -\frac{ik}{2\pi z} \iint_{\Sigma_0} dx_0dy_0\,E_0(x_0,y_0)\exp\left[ik\sqrt{(x-x_0)^2 + (y-y_0)^2 + z^2 }\right] \\
+= E_0 \odot S_H 
+	\end{gather*}
+	\pause
+	\begin{gather*}
+\textbf{spherical wavefront} \qquad S_H(x,y;z) = - \frac{ik}{2\pi z} \exp\left[ik\sqrt{x^2+y^2+z^2}\right]
+	\end{gather*}
 \end{frame}
 
 
-\begin{frame}{FTM: Fresnel Transform Method}	
-\[ r \approx z + \frac{x^2+y^2}{2z} \]
-\pause
-\[ E(x,y) = - \frac{ik}{2\pi z} \exp\left[ikz + \frac{ik}{2z} (x^2+y^2)\right] \iint dx_0\,dy_0E_0(x_0,y_0)\exp\left[\frac{ik}{2z}(x_0^2+y_0^2)\right] \]
-\[ \hspace{50mm}\times\exp\left[-\frac{ik}{z}(xx_0+yy_0)\right] \]
-\[ =\exp\left[\frac{ik}{2z}(x^2+y^2)\right]\mathfrak F\{E_0S_F\} \]
-\pause
-\[ \textbf{parabolic wave front} \qquad S_F(x,y;z) = -\frac{ik}{2\pi z}\exp\left[ikz + \frac{ik}{2z}(x^2+y^2)\right] \]
+\begin{frame}{Fresnel transform method: FTM}	
+	\vspace{-5 mm}
+	\begin{gather*}	
+r \approx z + \frac{x^2+y^2}{2z} \\
+	\end{gather*}
+	\pause
+	\vspace{-8 mm}
+	\begin{gather*}
+E(x,y) = - \frac{ik}{2\pi z} \exp\left[ikz + \frac{ik}{2z} (x^2+y^2)\right] \iint dx_0\,dy_0E_0(x_0,y_0)\exp\left[\frac{ik}{2z}(x_0^2+y_0^2)\right] \\
+\hspace{50mm}\times\exp\left[-\frac{ik}{z}(xx_0+yy_0)\right] \\ 
+=\exp\left[\frac{ik}{2z}(x^2+y^2)\right]\mathfrak F\{E_0S_F\} \\
+	\end{gather*}
+	\pause
+	\vspace{-8 mm}
+	\begin{gather*}
+\textbf{parabolic wave front} \qquad S_F(x,y;z) = -\frac{ik}{2\pi z}\exp\left[ikz + \frac{ik}{2z}(x^2+y^2)\right]
+	\end{gather*}
 \end{frame}
 
 
-\begin{frame}{ASM: Angular Spectrum Method}
+\begin{frame}{angular spectrum method: ASM}
 	\begin{figure}
-		\includegraphics[height=30 mm]{DH_tutorial_md.assets/image-20220415153149971}
+		\includegraphics[height=1.25 in]{DH_tutorial_md.assets/image-20220415153149971}
 	\end{figure}
-\textbf{angular spectrum of input wave}: plane wave components
-\[ A_0(k_x,k_y) = \mathfrak F\left\{E_0(x_0,y_0)\right\}\left[k_x,k_y\right] \]
-\[ =\frac{1}{2\pi}\iint_{\Sigma_0} dx_0 dy_0 E_0(x_0,y_0) \exp\left[-i(k_x x_0 + k_y y_0)\right] \]
+	\textbf{angular spectrum of input wave}: plane wave components
+	\begin{gather*}
+A_0(k_x,k_y) = \mathfrak F\left\{E_0(x_0,y_0)\right\}\left[k_x,k_y\right] \\
+=\frac{1}{2\pi}\iint_{\Sigma_0} dx_0 dy_0 E_0(x_0,y_0) \exp\left[-i(k_x x_0 + k_y y_0)\right]
+	\end{gather*}
 \end{frame}
 
 
-\begin{frame}{ASM: Angular Spectrum Method}
+\begin{frame}{propagation of angular spectrum}
 	\begin{figure}
-		\includegraphics[height=30 mm]{DH_tutorial_md.assets/image-20220415153149971}
+		\includegraphics[height=1.25 in]{DH_tutorial_md.assets/image-20220415153149971}
 	\end{figure}
 \textbf{propagation of angular spectrum:} output wave is the sum of propagated plane wave components
-\[ E(x,y,z) = \mathfrak F^{-1}\left\{A_0(k_x,k_y) \exp[ik_z z]\right\}[x,y] \]
-\[ = \mathfrak F^{-1}\left\{\mathfrak F\{E_0\}\exp\left[i\sqrt{k^2 - k_x^2 - k_y^2}\ z\right]\right\} \]
-\[ k_z = \sqrt{k^2 - k_x^2 - k_y^2} \qquad \left[ k_x^2 + k_y^2 \le k^2 \right]	\]
+	\begin{gather*}
+E(x,y,z) = \mathfrak F^{-1}\left\{A_0(k_x,k_y) \exp[ik_z z]\right\}[x,y] \\
+= \mathfrak F^{-1}\left\{\mathfrak F\{E_0\}\exp\left[i\sqrt{k^2 - k_x^2 - k_y^2}\ z\right]\right\} \\
+k_z = \sqrt{k^2 - k_x^2 - k_y^2} \qquad \left[ k_x^2 + k_y^2 \le k^2 \right]	
+	\end{gather*}
 \end{frame}
 
 
 \begin{frame}{FFT: fast Fourier transform}
 	\begin{figure}
-		\includegraphics[height=30 mm]{DH_tutorial_md.assets/image-20220416111943805}
+		\includegraphics[height=1.15 in]{DH_tutorial_md.assets/image-20220416111943805}
 	\end{figure}
-\[ \mathfrak F\left\{f(x,y)\right\}[k_x,k_y] = \frac{1}{2\pi}\iint dx\,dy\,f(x,y)\exp\left[-i(k_x x + k_yy)\right] = F(k_x,k_y) \]
-\[ \mathfrak F^{-1}\left\{F(k_x,k_y)\right\}[x,y] = \frac{1}{2\pi}\iint dk_x\,dk_y\,F(k_x,k_y)\exp\left[+i(k_x x + k_yy)\right] = f(x,y) \]
-\[ K_x = 2\pi/dx \qquad dk_x = 2\pi/A_x = K_x/N_x \]
-\[ K_y = 2\pi/dy \qquad dk_y = 2\pi/A_y = K_y/N_y \]
+	\begin{gather*}
+\mathfrak F\left\{f(x,y)\right\}[k_x,k_y] = \frac{1}{2\pi}\iint dx\,dy\,f(x,y)\exp\left[-i(k_x x + k_yy)\right] = F(k_x,k_y) \\
+\mathfrak F^{-1}\left\{F(k_x,k_y)\right\}[x,y] = \frac{1}{2\pi}\iint dk_x\,dk_y\,F(k_x,k_y)\exp\left[+i(k_x x + k_yy)\right] = f(x,y) \\
+K_x = 2\pi/dx \qquad dk_x = 2\pi/A_x = K_x/N_x \\
+K_y = 2\pi/dy \qquad dk_y = 2\pi/A_y = K_y/N_y
+	\end{gather*}
 \end{frame}
 
 
@@ -294,9 +304,9 @@ Fresnel-Kirchoff diffraction theory:
 		\begin{column}{.1\textwidth}
 \textbf{ }\\
 \vspace{10 mm}
-\textbf{     HCM}\\
+\textbf{HCM}\\
 \vspace{20 mm}
-\textbf{     ASM}
+\textbf{ASM}
 		\end{column}
 		\begin{column}{.9\textwidth}
 			\begin{figure}
@@ -341,7 +351,7 @@ def asdiffract(EE):
 \end{frame}
 
 \begin{frame}{DHM apparatus - reflection}
-%	\textbf{DHM: digital holographic microscopy}
+	\textbf{DHM: digital holographic microscopy}
 	\begin{columns}
 		\begin{column}{0.65\textwidth}
 			\vspace{-5 mm}
@@ -407,10 +417,7 @@ def asdiffract(EE):
 		\includegraphics[width=120mm]{DH_tutorial_md.assets/image-20220426154854457}
 	\end{figure}
 	\begin{itemize}
-		\item reference field scattered by point-like object particles serves as object field
-		\item overlapping dc and twin image terms
-		\item simplest optics
-		\item 3D particle image velocimetry
+		\item aaa
 	\end{itemize}
 \end{frame}
 
@@ -421,14 +428,12 @@ def asdiffract(EE):
 		\includegraphics[width=120mm]{DH_tutorial_md.assets/image-20220426154916787}
 	\end{figure}
 	\begin{itemize}
-		\item inline but separate reference and object fields
-		\item full size non-particle-like object
-		\item PSDH, phase-shifting digital holography, to remove dc and twin image terms
+		\item aaa
 	\end{itemize}
 \end{frame}
 
 
-\begin{frame}{PSDH: Phase-Shifting Digital Holography}
+\begin{frame}{phase-shifting digital holography}
 	\begin{columns}
 		\begin{column}{0.6\textwidth}
 			\begin{figure}
@@ -437,33 +442,27 @@ def asdiffract(EE):
 		\end{column}
 		\begin{column}{0.4\textwidth}
 			\begin{itemize}
-				\item BX: beam expander
-				\item BS: beam splitter
-				\item obj: object beam
-				\item ref: reference beam
-				\item PZT: reference mirror mounted on piezo-transducer
-				\item CCD: camera
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
 \end{frame}
 
 
-\begin{frame}{PSDH: Phase-Shifting Digital Holography}
-Aquire N-holograms using N different phase reference waves: 
+\begin{frame}{phase-shifting digital holography}
 \[ \textbf{object:   } E_O(x,y) = \mathcal{E}_O(x,y)\exp[i\Phi(x,y)] \]
-\[ \textbf{reference:   } E_n = \mathcal{E}_R \exp(i2\pi n/N) \hspace{5 mm} [n = 1,2,\cdots, N] \]
+\[ \textbf{reference:   } E_n = \mathcal{E}_R \exp(i2\pi n/N) \]
 	\pause
 \[ I_n = |E_R + E_O|^2 = \mathcal{E}_R^2 + \mathcal{E}_O^2 + \mathcal{E}_R\mathcal{E}_O e^{i(2\pi n/N-\Phi)} + \mathcal{E}_R\mathcal{E}_O e^{i(-2\pi n/N+\Phi)} \]
 	\pause
-\[ \frac{1}{N}\sum_{n=0}^{N-1} I_n e^{i2\pi n/N} = \frac{1}{N}\left\{\left[\mathcal{E}_R^2 + \mathcal{E}_O^2 \right]\sum_n e^{i2\pi n/N} + \mathcal{E}_R\mathcal{E}_O e^{-i\Phi}\sum_n e^{i4\pi n/N} + \mathcal{E}_R\mathcal{E}_O e^{i\Phi}N \right\} \]
+\[ S=\frac{1}{N}\sum_{n=0}^{N-1} I_n e^{i2\pi n/N} = \frac{1}{N}\left\{\left[\mathcal{E}_R^2 + \mathcal{E}_O^2 \right]\sum_n e^{i2\pi n/N} + \mathcal{E}_R\mathcal{E}_O e^{-i\Phi}\sum_n e^{i4\pi n/N} + \mathcal{E}_R\mathcal{E}_O e^{i\Phi}N \right\} \]
 \[ = \mathcal{E}_R\mathcal{E}_O(x,y)\exp[i\Phi(x,y)] \]
 	\pause
 \[ E_O(x,y) = \frac{1}{N\mathcal E_R}\sum_{n=0}^{N-1} I_n \exp(i2\pi n/N) \]
 \end{frame}
 
 
-\begin{frame}{PSDH: Phase-Shifting Digital Holography}
+\begin{frame}{phase-shifting digital holography}
 	\begin{columns}
 		\begin{column}{0.5\textwidth}
 			\vspace{-5 mm}
@@ -478,10 +477,11 @@ Aquire N-holograms using N different phase reference waves:
 			\item[b)] $ I_1 $
 			\item[c)] $ I_2 $
 			\item[d)] $ I_3 $
-			\item[e)] image reconstructed from $ I_0(x,y) $
-			\item[f)] $ \mathcal{E}_O(x,y) $
+			\item[e)] image reconstructed from $ I_O $
+			\item[f)] $ \sqrt{E_O^2(x,y)}
+			 $
 			\item[g)] $ \Phi(x,y) $
-			\item[h)] image reconstructed from $ \mathcal{E}_O(x,y)\exp{i\Phi(x,y)} $
+			\item[h)] image reconstructed from $ \sqrt{E_O^2}\exp{i\Phi(x,y)} $
 		\end{itemize}	
 		\end{column}
 	\end{columns}
@@ -507,20 +507,19 @@ def psdh(HHH):
 		\includegraphics[width=120mm]{DH_tutorial_md.assets/image-20220426154947369}
 	\end{figure}
 	\begin{itemize}
-		\item separation of dc and twin image terms
-		\item single exposure acquisition
-		\item reduced space-bandwidth product
+		\item aaa
 	\end{itemize}
 \end{frame}
 
 
 \begin{frame}{spatial frequency bandwidth in off-axis holography}
-Fourier spectrum, i.e. angular spectrum, of off-axis hologram:
 	\begin{figure}
-		\includegraphics[width=35 mm]{DH_tutorial_md.assets/angular_bandwidth}
+		\includegraphics[width=40 mm]{DH_tutorial_md.assets/angular_bandwidth}
 	\end{figure}
-\[ \textbf{max object bandwidth:     } B = \frac{2}{2+3\sqrt{2}}K = \beta K \qquad \beta=0.32 \]
-\[ \textbf{optimum off-axis:   } K_0 = \frac{3}{2\sqrt{2}}B = \frac{3}{2\sqrt{2}+6} K = \gamma K \qquad \gamma=0.34 \qquad \sqrt{2}\,\gamma = 0.48 \]
+	\begin{gather*}
+\textbf{max object bandwidth:     } B = \frac{2}{2+3\sqrt{2}}K = \beta K \qquad \beta=0.32 \\
+\textbf{optimum off-axis:   } K_0 = \frac{3}{2\sqrt{2}}B = \frac{3}{2\sqrt{2}+6} K = \gamma K \qquad \gamma=0.34 \qquad \sqrt{2}\,\gamma = 0.48 
+	\end{gather*}
 \end{frame}
 
 
@@ -556,9 +555,7 @@ def oxdh(HH, qq):
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item QPM: quantitative phase microscopy
-				\item SKOV-3 ovarian cancer cells
-				\item 60 x 60 $\mu m^2$
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -576,9 +573,7 @@ def oxdh(HH, qq):
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item red blood cell membrane fluctuation 
-				\item left: normal RBC
-				\item right: ethanol-fixed RBC
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -591,12 +586,12 @@ def oxdh(HH, qq):
 	\begin{columns}
 		\begin{column}{.6\textwidth}
 			\begin{figure}
-				\includegraphics[height=55 mm]{DH_tutorial_md.assets/DHM_cell_wiki}
+				\includegraphics[height=55 mm]{DH_tutorial_md.assets/DHM_cell_wiki.png}
 			\end{figure}
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item holographic time-lapse microscopy video of living cells, fibroblast
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -610,22 +605,21 @@ def oxdh(HH, qq):
 
 
 \begin{frame}{multi-wavelength DH: motivation}
+multi-wavelength: motivation
 	\begin{itemize}
 		\item QPM with height/thickness range beyond wavelength
-		\item numerical phase unwrapping algorithms
-		\item synthetic wavelength magnification by two-wavelength optical phase unwrapping
-		\vspace{3 mm}
-		\item multi-wavelength vs multi-illumination angle
-		\vspace{3 mm}
-		\item MW/MA HOPU: multi-wavelength/multi-angle hierarchical optical phase unwrapping
-		\item MW/MA COPU: multi-wavelength/multi-angle cumulative optical phase unwrapping
-		\item WS/AS SLCH: wavelength-scanning/angle-scanning synthetic low-coherence holography
+	\end{itemize}	
+multi-wavelength: history
+	\begin{itemize}
+		\item HILDEBRAND, B. P., \& HAINES, K. A. (1967). MULTIPLE-WAVELENGTH AND MULTIPLE-SOURCE HOLOGRAPHY APPLIED TO CONTOUR GENERATION. *JOURNAL OF THE OPTICAL SOCIETY OF AMERICA*, *57*(2), 155+. https://doi.org/10.1364/JOSA.57.000155
+		\item Cheng, Y.-Y., \& Wyant, J. C. (1984). Two-wavelength phase shifting interferometry. *Appl. Opt.*, *23*(24), 4539–4543. https://doi.org/10.1364/AO.23.004539
 	\end{itemize}
+wavelength-scanning: history
 \end{frame}
 
 
 \begin{frame}{QPM with single wavelength}
-\[ E(x,y) = \mathcal{E}(x,y)\cdot\exp[i\Phi(x,y)] \]
+\[ E(x,y) = a(x,y)\cdot\exp[i\Phi(x,y)] \]
 \pause
 \[ \Phi(x,y) = \left[ 2\pi\ \frac{Z(x,y)}{\lambda} \right] \ //\ 2\pi \qquad \in [-\pi,\pi] \] \\
 \[ a \ //\ b \quad \equiv \textrm{mod}\left(a+\frac{b}{2},\ b\right)-\frac{b}{2} \qquad \in \left[-\frac{b}{2}, \frac{b}{2}\right] \]
@@ -636,15 +630,15 @@ def oxdh(HH, qq):
 
 \begin{frame}{2WOPU}
 \vspace{-5 mm}
-\[ E_n(x,y) = \mathcal{E}_n(x,y)\cdot\exp[i\Phi_n(x,y)] = \mathcal{E}_n(x,y)\cdot\exp\left[ i2\pi\frac{Z(x,y)}{\lambda_n} \right] \]
+\[ E_n(x,y) = a_n(x,y)\cdot\exp[i\Phi_n(x,y)] = a_n(x,y)\cdot\exp\left[ i2\pi\frac{Z(x,y)}{\lambda_n} \right] \]
 \pause
-\[ E_1\cdot E_2^* \equiv E_{12}(x,y) = \mathcal{E}_{12}\cdot\exp[i\Phi_{12}(x,y)] \] \\
+\[ E_1\cdot E_2^* \equiv E_{12}(x,y) = a_{12}\cdot\exp[i\Phi_{12}(x,y)] \] \\
 \[ \Phi_{12}(x,y) \equiv (\Phi_1 - \Phi_2) \ //\ 2\pi = \left[ 2\pi\ \frac{Z(x,y)}{\Lambda_{12}} \right]\ //\ 2\pi \qquad \in [-\pi,\pi] \]
-\[ \textbf{synthetic wavelength:}\hspace{5 mm}\Lambda_{12} = -\frac{\lambda_1 \lambda_2}{\lambda_1 - \lambda_2} \]
+\[ \Lambda_{12} = -\frac{\lambda_1 \lambda_2}{\lambda_1 - \lambda_2} \]
 \pause
 \[ Z_{12}(x,y) = \Lambda_{12}\cdot\frac{\Phi_{12}(x,y)}{2\pi} \qquad \in\left[-\frac{\Lambda_{12}}{2}, \frac{\Lambda_{12}}{2} \right] \]
 \pause
-\[ \text{wavelength magnification:}\hspace{5 mm}\frac{\Lambda}{\lambda} = \frac{\lambda}{\Delta\lambda} \]
+\[ \frac{\Lambda}{\lambda} = \frac{\lambda}{\Delta\lambda} \]
 \end{frame}
 
 
@@ -661,7 +655,7 @@ def oxdh(HH, qq):
 				\item[a) ] $ Z(x) $
 				\item[b) ] $ Z_1(x) $
 				\item[c) ] $ Z_2(x) $
-				\item[d) ] $ Z_{12}(x) $
+				\item[c) ] $ Z_{12}(x) $
 			\end{itemize}
 \vspace{5 mm}
 $ Z_{\max}=15\ \mu m $
@@ -691,9 +685,7 @@ aaa
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item[a) ] two-wavelength holographic interferometer
-				\item[b) ] a detail of a hologram showing the two sets of fringes in orthogonal directions
-				\item[c) ] angular spectrum of b) showing the two pairs of peaks for the green and red lasers
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -710,12 +702,8 @@ aaa
 			\end{figure}
 		\end{column}
 		\begin{column}{.4\textwidth}
-Two-wavelength optical phase unwrapping on images of a porous coal sample
 			\begin{itemize}
-				\item[a) ] amplitude image
-				\item[b) ] single-wavelength phase image reconstructed with $\lambda_1=$ 532 nm
-				\item[c) ] software unwrapped phase image from b)
-				\item[c) ] 3D rendering of the dual-wavelength unwrapped phase image
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -734,11 +722,11 @@ Two-wavelength optical phase unwrapping on images of a porous coal sample
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item[a) ] object: plastic lens, 52 mm dia
+				\item[a) ] object: plastic lens
 				\item[b) ] hologram at 680 GHz
 				\item[c) ] hologram at 725 GHz
 				\item[d) \& e) ] amplitude reconstructions
-				\item[f) \& g) ] phase reconstructions
+				\item[f) \& g) ] pphase reconstructions
 				\item[h) ] unwrapped reconstruction
 				\item[i) ] cross-section through center of h) 
 				\item[j) ] pseudo 3D rendering of h)
@@ -759,33 +747,33 @@ Two-wavelength optical phase unwrapping on images of a porous coal sample
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item Optical system based on a modified Mach-Zehnder interferometric microscope with two illumination lasers. Inset, pixel filter layout of a Bayer mosaic color camera.
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
 \end{frame}
 
 
-%\begin{frame}{MT Rinehart, et al.: Simultaneous two-wavelength transmission quantitative phase microscopy with a color camera}
-%	\vspace{-3 mm}
-%	\small Opt Lett 35, 2612 (2010)
-%	\begin{columns}
-%		\begin{column}{.6\textwidth}
-%			\vspace{-5 mm}
-%			\begin{figure}
-%				\includegraphics[width=70 mm]{DH_tutorial_md.assets/image-20220427143143483}
-%			\end{figure}
-%		\end{column}
-%		\begin{column}{.4\textwidth}
-%			\begin{itemize}
-%				\item[a) ] OPD map after numerical phase unwrapping
-%				\item[b) ] OPD map after two-wavelength optical phase unwrapping
-%				\item[c) ] incorrect object height profile
-%				\item[d) ] object height profile from two-wavelength unwrapping
-%			\end{itemize}
-%		\end{column}
-%	\end{columns}
-%\end{frame}
+\begin{frame}{MT Rinehart, et al.: Simultaneous two-wavelength transmission quantitative phase microscopy with a color camera}
+	\vspace{-3 mm}
+	\small Opt Lett 35, 2612 (2010)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\vspace{-5 mm}
+			\begin{figure}
+				\includegraphics[width=70 mm]{DH_tutorial_md.assets/image-20220427143143483}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item[a) ] 532 nm OPD map after quality-map guided unwrapping
+				\item[b) ] 532 nm OPD map after two-wavelength unwrapping
+				\item[c) ] incorrect object height profile
+				\item[d) ] object height profile from two-wavelength unwrapping
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
 
 
 \begin{frame}{Y Lee, et al.: Single-shot dual-wavelength phase unwrapping in parallel phase-shifting digital holography}
@@ -800,51 +788,51 @@ Two-wavelength optical phase unwrapping on images of a porous coal sample
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item parallel phase shifting by 2x2 polarization array
-				\item two-wavelength holography by off-axis angular multiplexing
-				\item single shot acquisition of two-wavelength phase-shifting holography
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
 \end{frame}
 
 
-%\begin{frame}{Y Lee, et al.: Single-shot dual-wavelength phase unwrapping in parallel phase-shifting digital holography}
-%	\vspace{-3 mm}
-%	\small Opt Lett 39, 2374 (2014)
-%	\begin{columns}
-%		\begin{column}{.6\textwidth}
-%			\vspace{-5 mm}
-%			\begin{figure}
-%				\includegraphics[width=70 mm]{DH_tutorial_md.assets/image-20220427144827974}
-%			\end{figure}
-%		\end{column}
-%		\begin{column}{.4\textwidth}
-%			\begin{itemize}
-%				\item[a) ] parallel two-step phase-shifting interferometry
-%				\item[b) ] angular multi-plexing technique
-%			\end{itemize}
-%		\end{column}
-%	\end{columns}
-%\end{frame}
+\begin{frame}{Y Lee, et al.: Single-shot dual-wavelength phase unwrapping in parallel phase-shifting digital holography}
+	\vspace{-3 mm}
+	\small Opt Lett 39, 2374 (2014)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\vspace{-5 mm}
+			\begin{figure}
+				\includegraphics[width=70 mm]{DH_tutorial_md.assets/image-20220427144827974}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item[a) ] parallel two-step phase-shifting interferometry
+				\item[b) ] angular multi-plexing technique
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
 
 
-\section{MW-HOPU: multi-wavelength hierarchical optical phase unwrapping}
+\section{h-MWOPU: hierarchical multi-wavelength optical phase unwrapping}
 \begin{frame}[c]
 	\centering\LARGE\textbf{\secname}
 \end{frame}
 
 
 \begin{frame}{noise in 2WOPU}
-\[ \delta\Phi_\lambda = 2\pi\epsilon \]
-\[ \delta Z_\lambda = \lambda\ \frac{\delta\Phi_\lambda}{2\pi} = \lambda\epsilon \]
-\[ \delta\Phi_{12} = \sqrt{2}\ 2\pi\ \epsilon \]
-\[ \delta Z_{12} = \sqrt{2}\ \Lambda_{12}\ \epsilon \]
-\[ \textbf{amplification of noise:}\hspace{5 mm} \frac{\delta Z_{12}}{\delta Z_\lambda} = \frac{\sqrt{2}\ \Lambda_{12}}{\lambda} \]
+	\begin{gather*}
+\delta\Phi_n = 2\pi\epsilon \\
+\delta Z_n = \lambda_n\ \frac{\delta\Phi_n}{2\pi} = \lambda_n\epsilon \\
+\delta\Phi_{12} = \sqrt{2}\ 2\pi\ \epsilon \\
+\delta Z_{12} = \sqrt{2}\ \Lambda_{12}\ \epsilon \\
+\frac{\delta Z_{12}}{\delta Z_n} = \frac{\sqrt{2}\ \Lambda_{12}}{\lambda_n}
+	\end{gather*}
 \end{frame}
 
 
-\begin{frame}{noise reduction by 3WOPU}
+\begin{frame}{3WOPU}
 	\begin{columns}
 		\begin{column}{.4\textwidth}
 			\vspace{-5 mm}
@@ -879,11 +867,11 @@ $\Delta\cdot\Lambda_{13}$: 		spikes of height $\Lambda_{13}$ scattered near $\te
 			\end{figure}
 		\end{column}
 		\begin{column}{.6\textwidth}
-require: 
+\textbf{require: }
 \[ \frac{\delta Z_{12}}{\Lambda_{13}} = \sqrt{2}\ \epsilon\ \frac{\Lambda_{12}}{\Lambda_{13}} \ll 1 \]
 \[ \alpha = \frac{\Lambda_{13}}{\Lambda_{12}} \gg \sqrt{2}\ \epsilon \]
 \pause
-despiking: 
+\textbf{despiking: }
 \[ Z'_{12\_3} - Z_{12} = s\cdot\Delta Z \]
 \[ Z_{12\_3} = Z'_{12\_3} - s\cdot\Lambda_{13}\cdot\left(\Delta Z \gg \delta Z_{13}\right)\  \]
 \[ \delta Z_{12\_3} = \delta Z_{13} = \sqrt{2}\ \Lambda_{13}\ \epsilon \]
@@ -892,7 +880,7 @@ despiking:
 \end{frame}
 
 
-\begin{frame}{MW-HOPU: multi-wavelength hierarchical optical phase unwrapping}
+\begin{frame}{hierarchical MWOPU}
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 			\vspace{-5 mm}
@@ -902,8 +890,8 @@ despiking:
 		\end{column}
 		\begin{column}{0.6\textwidth}
 \[ \{\lambda_n\} = \lambda_1,\ \lambda_2,\ \lambda_3,\ \cdots \]
-\[ E_n(x,y) = \mathcal{E}_n(x,y)\cdot\exp[i\Phi_n(x,y)] \]
-\[ n \ge 2:\quad E_{1n}(x,y) = E_1\cdot E_n^* = \mathcal{E}_{1n}(x,y)\cdot\exp[i\Phi_{1n}(x,y)] \]
+\[ E_n(x,y) = a_n(x,y)\cdot\exp[i\Phi_n(x,y)] \]
+\[ n \ge 2:\quad E_{1n}(x,y) = E_1\cdot E_n^* = a_{1n}(x,y)\cdot\exp[i\Phi_{1n}(x,y)] \]
 \[ \Phi_{1n} = (\Phi_1 - \Phi_n)//2\pi = \left[ 2\pi\ \frac{Z}{\Lambda_{1n}} \right]\ //\ 2\pi \]
 \[ \Lambda_{1n} = -\frac{\lambda_1\lambda_n}{\lambda_1 - \lambda_n} \]
 \[ Z_{1n} = \Lambda_{1n}\ \frac{\Phi_{1n}}{2\pi} \]
@@ -913,7 +901,7 @@ despiking:
 \end{frame}
 
 
-\begin{frame}{MW-HOPU}
+\begin{frame}{hierarchical MWOPU}
 	\begin{columns}
 		\begin{column}{0.4\textwidth}
 			\vspace{-5 mm}
@@ -924,14 +912,13 @@ despiking:
 		\begin{column}{0.6\textwidth}
 \[ n \ge 3:\quad Y_{12\_n}=\textrm{round}\left[\frac{Z_{12\_(n-1)}}{\Lambda_{1n}}\right]\Lambda_{1n} \]
 \[ Z'_{12\_n} = Y_{12\_n} + Z_{1n} \]
-%\[ \delta Z_{12\_n} = \Delta\cdot\Lambda_{1n} + \delta Z_{1n} \]
+\[ \delta Z_{12\_n} = \Delta\cdot\Lambda_{1n} + \delta Z_{1n} \]
 \[ Z'_{12\_n} - Z_{12\_(n-1)} = s\cdot \Delta Z \]
 \[ Z_{12\_n} = Z'_{12\_n} - s\cdot\Lambda_{1n}\cdot(\Delta Z \gg \delta Z_{1n}) \]
 \[ \delta Z_{12\_n} = \delta Z_{1n} = \sqrt{2}\cdot\Lambda_{1n}\epsilon \]
-\[ \text{require:}\hspace{5 mm} \alpha=\frac{\Lambda_{1,n+1}}{\Lambda_{1n}} \gg \sqrt{2}\ \epsilon \]
 \begin{small}
 \hrulefill \\
-$ \displaystyle \epsilon=3\ \%,\ \alpha=0.25 $ \\
+$ \epsilon=3\ \%,\ \alpha=0.25 $ \\
 $ \Lambda_{12}=2000\ \mu m,\ N=5,\ \Lambda_{15}=31.250\ \mu m $
 \end{small}
 		\end{column}
@@ -939,7 +926,7 @@ $ \Lambda_{12}=2000\ \mu m,\ N=5,\ \Lambda_{15}=31.250\ \mu m $
 \end{frame}
 
 
-\begin{frame}{MW-HOPU and stepping factor $\alpha$}
+\begin{frame}{h-MWOPU and stepping factor $\alpha$}
 	\begin{columns}
 		\begin{column}{0.7\textwidth}
 			\vspace{-5 mm}
@@ -963,7 +950,7 @@ $ \quad\Lambda_{18}=31.25\ \mu m $ \\
 \end{frame}
 
 
-\begin{frame}{sample python code for MW-HOPU}
+\begin{frame}{sample python code for h-MWOPU}
 aaa
 \end{frame}
 
@@ -979,9 +966,7 @@ aaa
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item tunable dye laser
-				\item $\lambda_n =$ 579.01, 579.12, 579.23, 579.45 nm
-				\item $\Lambda_{1n} =$ 3.04, 1.52, 0.76 mm
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -1004,9 +989,7 @@ aaa
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-\item tunable diode laser
-\item $\lambda_n=$ 785.54, 785.55,785.56, 785.59, 785.61, 785.67, 785.80 nm
-\item $\Lambda_{1n}=$ 73, 35, ,14, 10.4, 4.9, 2.5 mm
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -1020,18 +1003,14 @@ aaa
 		\begin{column}{.6\textwidth}
 			\vspace{-5 mm}
 			\begin{figure}
-				\includegraphics[width=70 mm]{DH_tutorial_md.assets/image-20220608144516196}
+				\includegraphics[width=80 mm]{DH_tutorial_md.assets/2016_OX_24_27791}
 			\end{figure}
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-\item supercontinuum laser with spectral filtering by grating and SLM
-\item $\lambda_1=$ 650.3 nm, $\lambda_2=$ 559.7 nm, $\lambda_3=$ 575.3 nm
-\item $\Lambda_{12} =$ 4.0  $\mu m$, $\Lambda_{23}=$ 20.6 $\mu m$
-\item[a) ] $Z_{12}$
-\item[b) ] $Z_{23}$
-\item[c) ] $Z_{12+23}$: $Z_{12}$ stitched to $Z_{23}$
-\item[d) ] average of $Z_1$, $Z_2$, and $Z_3$ stitched to $Z_{12+23}$
+				\item[a) ] $\lambda_1 = $ 650.3 nm, $ \lambda_2 = $ 559.7 nm, $ \lambda_3 = $ 575.3 nm, $ \Delta\lambda = $ 0.94 nm
+				\item[b) ] $ \Phi_2 $
+				\item[c) ] $ Z_1, Z_2, Z_3 $
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -1040,7 +1019,7 @@ aaa
 
 \begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
 	\vspace{-3 mm}
-	\small Light: Adv Manufact, 3, 1 (2022)
+	\small Light: Adv Manufacturing, 3, 1 (2022)
 	\begin{columns}
 		\begin{column}{.47\textwidth}
 			\begin{figure}
@@ -1054,39 +1033,6 @@ aaa
 		\end{column}
 		\begin{column}{.25\textwidth}
 			\begin{itemize}
-\vspace{-10 mm}
-\item discrete precision tuned DPSS lasers
-\item $\lambda_n=$ 639.616, 639.595, 639.539, 638.929 nm
-\item $\Lambda_{1n}=$ 19.749, 5.302, 0.595 mm
-\item[a) ] $ \Phi_1(x,y) $
-\item[b) ] $ \Phi_2(x,y) $
-\item[c) ] $ Z_{12}(x,y) $
-\item[d) ] $ Z_{12\_3}(x,y) $
-\item[e) ] $ Z_{12\_4}(x,y) $
-\item[f) ] $ Z_{\textrm{proc}}(x,y) $
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
-	\vspace{-3 mm}
-	\small Light: Adv Manufact, 3, 1 (2022)
-	\begin{columns}
-		\begin{column}{.47\textwidth}
-			\begin{figure}
-				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427214715153}
-			\end{figure}
-		\end{column}
-		\begin{column}{.28\textwidth}
-			\begin{figure}
-				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215024923}
-			\end{figure}
-		\end{column}
-		\begin{column}{.25\textwidth}
-			\begin{itemize}
-\item $\Lambda_{1n}=$ 28.213, 5.302, 0.595 mm
 				\item[a) ] $ \Phi_1(x,y) $
 				\item[b) ] $ \Phi_2(x,y) $
 				\item[c) ] $ Z_{12}(x,y) $
@@ -1101,227 +1047,80 @@ aaa
 
 \begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
 	\vspace{-3 mm}
-	\small Light: Adv Manufact, 3, 1 (2022)
+	\small Light: Adv Manufacturing, 3, 1 (2022)
+	\begin{columns}
+		\begin{column}{.47\textwidth}
+			\begin{figure}
+				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427214715153}
+			\end{figure}
+		\end{column}
+		\begin{column}{.28\textwidth}
+			\begin{figure}
+				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215024923}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
+			\begin{itemize}
+				\item[a) ] $ \Phi_1(x,y) $
+				\item[b) ] $ \Phi_2(x,y) $
+				\item[c) ] $ Z_{12}(x,y) $
+				\item[d) ] $ Z_{12\_3}(x,y) $
+				\item[e) ] $ Z_{12\_4}(x,y) $
+				\item[f) ] $ Z_{\textrm{proc}}(x,y) $
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
+	\vspace{-3 mm}
+	\small Light: Adv Manufacturing, 3, 1 (2022)
 	\begin{figure}
 		\includegraphics[height=60 mm]{DH_tutorial_md.assets/image-20220427215138931_a}
 	\end{figure}
 \end{frame}
 
 
-\section{MA-HOPU: multi-angle hierarchical optical phase unwrapping}
+\section{c-MWOPU: cumulative multi-wavelength optical phase unwrapping}
 \begin{frame}[c]
 	\centering\LARGE\textbf{\secname}
 \end{frame}
 
 
-\begin{frame}{multi-wavelength generation}
-	\begin{columns}
-		\begin{column}{0.6\textwidth}
-			\begin{itemize}
-				\item discrete lasers
-				\item tunable laser
-				\item index tuning
-				\item \textbf{angle scanning}: 
-\[ \lambda_\theta = \lambda\cdot\cos\theta \]
-				\begin{itemize}
-					\item simple, economical, controllable mechanism
-					\item no chromatic aberration
-					\item possible geometric aberration
-				\end{itemize}
-			\end{itemize}
-		\end{column}
-		\begin{column}{0.4\textwidth}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{DHM apparatus - with angle scan}
-	\begin{columns}
-		\begin{column}{0.65\textwidth}
-			\vspace{-5 mm}
-			\begin{figure}
-				\includegraphics[width=100 mm]{DH_tutorial_md.assets/DHM_optics_reflection}
-			\end{figure}
-		\end{column}
-		\begin{column}{0.35\textwidth}
-			\begin{itemize}
-				\begin{scriptsize}
-				\item MI: illumination mirror on rotation stage
-				\item L1 \& L2: confocal lens pair
-				\item MR: piezo-mounted reference mirror
-				\item MI, object, MR, \& cam are all optically conjugate
-				\item rotation of MI changes object illumination angle without changing relative angle between object and reference
-				\end{scriptsize}
-				\item effective wavelength: 
-			\end{itemize}
-			\[ \lambda_\theta = \lambda\cdot\cos\theta \]
-		\end{column}
-	\end{columns}
-\end{frame}
-
-%
-%\begin{frame}{theory of h-MAOPU}
-%aaa
-%\end{frame}
-%
-%
-%\begin{frame}{h-MAOPU process}
-%aaa
-%\end{frame}
-%
-
-%\begin{frame}{sample python code}
-%aaa
-%\end{frame}
-
-
-\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
-	\vspace{-3 mm}
-	\small Light: Adv Manufacturing, 3, 1 (2022) \\
-\vspace{2 mm}
-Basic process of optical phase unwrapping by MA-HOPU using eigth (8) illumination angles for eight effective wavelengths. The object is a stack of three mirror-like surfaces, with field of view 9.87x5.55 mm$^2$
-\vspace{-5 mm}
-	\begin{columns}
-		\begin{column}{.47\textwidth}
-			\begin{figure}
-				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427215312948}
-			\end{figure}
-		\end{column}
-		\begin{column}{.28\textwidth}
-			\begin{figure}
-				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215358192}
-			\end{figure}
-		\end{column}
-		\begin{column}{.25\textwidth}
-			\begin{itemize}
-				\item[a) ] $ \Phi_1(x,y) $
-				\item[b) ] $ \Phi_2(x,y) $
-				\item[c) ] $ Z_{12}(x,y) $
-				\item[d) ] $ Z_{12\_3}(x,y) $
-				\item[e) ] $ Z_{12\_8}(x,y) $
-				\item[f) ] $ Z_{\textrm{proc}}(x,y) $
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
-	\vspace{-3 mm}
-	\small Light: Adv Manufacturing, 3, 1 (2022) \\
-	\vspace{2 mm}
-	\begin{figure}
-		\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220609105503009.png}
-	\end{figure}
-\end{frame}
-
-
-\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
-	\vspace{-3 mm}
-	\small Light: Adv Manufacturing, 3, 1 (2022) \\
-\vspace{2 mm}
-Example of optical phase unwrapping by MA-HOPU using eigth (8) illumination angles for eight effective wavelengths. The object is a US penny, with field of view 9.87x5.55 mm$^2$. \\
-$\Lambda_{12}=2\ 911.5\ \mu m,\ \Lambda_{13}=1\ 455.5\ \mu m,\cdots,\ \Lambda_{18}=44.1\ \mu m$
-\vspace{-5 mm}
-	\begin{columns}
-		\begin{column}{.47\textwidth}
-			\begin{figure}
-				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427215431949}
-			\end{figure}
-		\end{column}
-		\begin{column}{.28\textwidth}
-			\begin{figure}
-				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215457707}
-			\end{figure}
-		\end{column}
-		\begin{column}{.25\textwidth}
-			\begin{itemize}
-				\item[a) ] $ \Phi_1(x,y) $
-				\item[b) ] $ \Phi_2(x,y) $
-				\item[c) ] $ Z_{12}(x,y) $
-				\item[d) ] $ Z_{12\_3}(x,y) $
-				\item[e) ] $ Z_{12\_8}(x,y) $
-				\item[f) ] $ Z_{\textrm{proc}}(x,y) $
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
-	\vspace{-3 mm}
-	\small Light: Adv Manufacturing, 3, 1 (2022) \\
-	\vspace{2 mm}
-	Effect of iteration stepping factor $\alpha$ \\
-left:  $\alpha=0.25,\ N=8,\ \Lambda_{12}=2\ 911.5\ \mu m,\ \Lambda_{13}=1\ 455.5\ \mu m,\cdots,\ \Lambda_{18}=44.1\ \mu m$ \\
-right: $\alpha=0.125,\ N=5,\ \Lambda_{12}=2\ 911.5\ \mu m,\ \Lambda_{13}=727.5\ \mu m,\cdots,\ \Lambda_{15}=44.1\ \mu m$ 
-\vspace{-2 mm}
-	\begin{columns}
-		\begin{column}{.35\textwidth}
-%			\[ \alpha=0.25,\ N=8 \]
-			\begin{figure}
-				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215457707}
-			\end{figure}
-		\end{column}
-		\begin{column}{.35\textwidth}
-%			\[ \alpha=0.125,\ N=5 \]
-			\begin{figure}
-				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215537750}
-			\end{figure}
-		\end{column}
-		\begin{column}{.3\textwidth}
-			\begin{itemize}
-				\item[a) ] $ Z_{12}(x,y) $
-				\item[b) ] $ Z_{12\_3}(x,y) $
-				\item[c) ] $ Z_{12\_8}(x,y) $
-				\item[d) ] $ Z_{\textrm{proc}}(x,y) $
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\section{MW-COPU: multi-wavelength cumulative optical phase unwrapping}
-\begin{frame}[c]
-	\centering\LARGE\textbf{\secname}
-\end{frame}
-
-
-\begin{frame}{MW-COPU theory}
+\begin{frame}{c-MWOPU theory}
+%\[ \Phi_n = \left[ 2\pi\frac{Z}{\lambda_n} \right]//2\pi \]
+%\[ \Phi_{12} = \Phi_1 - \Phi_2 = 2\pi Z\left[ \frac{1}{\lambda_1} - \frac{1}{\lambda_2} \right] = 2\pi\frac{Z}{\Lambda_{12}} \hspace{5 mm} [\Lambda_{12} > Z_{\max}] \]
+%\[ Z_{12} = \Lambda_{12}\frac{\Phi_{12}}{2\pi} \]
 Choose $\displaystyle\frac{1}{\lambda_n}$ at uniform intervals:
 	\begin{small}
 \[ \frac{1}{\lambda_1}-\frac{1}{\lambda_2} = \frac{1}{\lambda_2}-\frac{1}{\lambda_3} = \cdots \equiv \frac{1}{\Lambda} \]
-\pause
-\[ \Phi_{12} = \Phi_1-\Phi_2 = 2\pi Z\left[ \frac{1}{\lambda_1}-\frac{1}{\lambda_2} \right] = 2\pi\frac{Z}{\Lambda} \hspace{5 mm} [\Lambda>Z_{\max}] \]
-\pause
+\[ \Phi_{12} = \Phi_1-\Phi_2 = 2\pi Z\left[ \frac{1}{\lambda_1}-\frac{1}{\lambda_2} \right] = 2\pi\frac{Z}{\Lambda} \hspace{5 mm} [\Lambda_{12}>Z_{\max}] \]
 \[ \Phi_{23} = \Phi_2-\Phi_3 = 2\pi Z\left[ \frac{1}{\lambda_2}-\frac{1}{\lambda_3} \right] = 2\pi\frac{Z}{\Lambda} \]
 \[ \cdots \]
-\[ \Phi_{N-1,N} = \Phi_{N-1}-\Phi_N = 2\pi Z\left[ \frac{1}{\lambda_{N-1}}-\frac{1}{\lambda_N} \right] = 2\pi\frac{Z}{\Lambda} \]
-\pause
-\[ \Psi_{1,N} \equiv \sum_{n=1}^{N-1}\Phi_{n,n+1} = \Phi_1-\Phi_N = 2\pi Z\left[\frac{1}{\lambda_1}-\frac{1}{\lambda_N}\right] = 2\pi (N-1)\frac{Z}{\Lambda} \]
+\[ \Phi_{n,n+1} = \Phi_n-\Phi_{n+1} = 2\pi Z\left[ \frac{1}{\lambda_n}-\frac{1}{\lambda_{n+1}} \right] = 2\pi\frac{Z}{\Lambda} \]
+\[ \Psi_{1,n+1} = \Phi_{12}+\Phi_{23}+\cdots+\Phi_{n,n+1} = \Phi_1-\Phi_{n+1} = 2\pi Z\left[\frac{1}{\lambda_1}-\frac{1}{\lambda_{n+1}}\right] = 2\pi n\frac{Z}{\Lambda} \]
 	\end{small}
+%\[ Z_{1\_n} = \frac{\Lambda}{n}\frac{\Psi_{1,n+1}}{2\pi} \]
 \end{frame}
 
 
-\begin{frame}{MW-COPU theory}
-\[ \Psi_{1,N} = 2\pi (N-1)\frac{Z}{\Lambda} \]
-\[ Z[\Psi_{1,N}] = \frac{\Lambda}{N-1}\frac{\Psi_{1,N}}{2\pi} \]
-noise in $Z[\Psi_{1,N}]$
-\[ \delta Z[\Psi_{1,N}] = \frac{\Lambda}{2\pi (N-1)}\sqrt{2}\ 2\pi\epsilon = \frac{\sqrt{2}\epsilon\Lambda}{N-1} = \frac{\delta Z_{12}}{N-1} \]
+\begin{frame}{c-MWOPU theory}
+\[ \Psi_{1,n+1} = 2\pi n\frac{Z}{\Lambda} \]
+\[ Z[\Psi_{1,n+1}] = \frac{\Lambda}{n}\frac{\Psi_{1,n+1}}{2\pi} \]
+noise in $Z[\Psi_{1,n+1}]$
+\[ \delta Z[\Psi_{1,n+1}] = \frac{\Lambda}{2\pi n}\sqrt{2}\ 2\pi\epsilon = \frac{\sqrt{2}\epsilon\Lambda}{n} = \frac{\delta Z_{12}}{n} \]
 \end{frame}
 
 
-\begin{frame}{MW-COPU process}
-	\begin{figure}
-		\includegraphics[height=60 mm]{DH_tutorial_md.assets/copu}
-	\end{figure}
+\begin{frame}{c-MWOPU process}
+aaa
 \end{frame}
 
 
-%\begin{frame}{MW-COPU sample python code}
-%aaa
-%\end{frame}
+\begin{frame}{c-MWOPU sample python code}
+aaa
+\end{frame}
 
 
 \begin{frame}{P Psota, et al.: Surface topography measurement by frequency sweeping digital holography}
@@ -1335,59 +1134,14 @@ noise in $Z[\Psi_{1,N}]$
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item tunable diode laser, $\lambda=$ 784 $\sim~$ 785.5 nm
-				\item N = 500 $\sim~$ 1200
-				\item measurement of slope of phase vs wavenumber
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
 \end{frame}
 
 
-\section{MA-COPU: multi-angle cumulative optical phase unwrapping}
-\begin{frame}[c]
-	\centering\LARGE\textbf{\secname}
-\end{frame}
-
-
-%\begin{frame}{MA-COPU theory}
-%aaa
-%\end{frame}
-
-
-%\begin{frame}{MA-COPU process}
-%aaa
-%\end{frame}
-
-
-%\begin{frame}{MA-COPU sample python code}
-%aaa
-%\end{frame}
-
-
-\begin{frame}{P Psota, et al.: Multiple angle digital holography for the shape measurement of the unpainted tympanic membrane}
-	\vspace{-3 mm}
-	\small Opt Expr  28, 24624 (2020)
-	\begin{columns}
-		\begin{column}{.6\textwidth}
-			\begin{figure}
-%				\includegraphics[width=90 mm]{DH_tutorial_md.assets/image-20220502140028547}
-				\includegraphics[width=70 mm]{DH_tutorial_md.assets/psota_tympanic}
-			\end{figure}
-		\end{column}
-		\begin{column}{.4\textwidth}
-			\begin{itemize}
-				\item $\lambda=$ 532.8 nm
-				\item scan 1.6$^\circ$ range at 0.01$^\circ$ steps
-				\item N = 9
-				\item height range 1.5 mm with approx. 0.14 mm resolution
-			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\section{WS-SLCH: wavelength-scanning synthesized low-coherence holography}
+\section{WSDIH: wavelength-scanning synthesized low-coherence holography}
 \begin{frame}[c]
 	\centering\LARGE\textbf{\secname}
 \end{frame}
@@ -1434,9 +1188,9 @@ Use a series of $k$'s and sum over all $E_k$'s:
 %\end{frame}
 
 
-%\begin{frame}{WSDIH sample python code}
-%aaa
-%\end{frame}
+\begin{frame}{WSDIH sample python code}
+aaa
+\end{frame}
 
 
 \begin{frame}{JC Marron \& KS Schroeder: Holographic laser-radar}
@@ -1450,9 +1204,7 @@ Use a series of $k$'s and sum over all $E_k$'s:
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item tunable dye laser
-				\item $\lambda=$ 0.55 $\sim$ 0.60 $\mu m$, freq scan range 36 THz, height resolution 4.2 $\mu m$
-				\item freq step 900 GHz, height range 166 $\mu m$
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -1472,9 +1224,6 @@ Use a series of $k$'s and sum over all $E_k$'s:
 			\begin{itemize}
 				\item[a) ] numeral 2 in the 2000 mintage mark of a penny, 1 x 1 mm$^2$
 				\item[b) ] fire ant's compound eye, 1 x 1 mm$^2$
-				\item ring dye laser, Rhodamine 6G
-				\item $\lambda_0=$ 575.0 nm, $\Delta\lambda=$ 1.06 nm, N = 30
-				\item height range 330 $\mu m$, resolution 11 $\mu m$
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -1513,53 +1262,224 @@ Use a series of $k$'s and sum over all $E_k$'s:
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item tomography of red blood cell
-				\item femtosecond OPA, 480-675 nm, N = 20
-				\item height range 7.5 $\mu m$, resolution 0.2 $\mu m$
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
 \end{frame}
 
 
-%\begin{frame}{L Xu, et al.: High-precision three-dimensional shape reconstruction via digital refocusing in multi-wavelength digital holography}
-%	\vspace{-3 mm}
-%	\small Appl Opt 51, 2958 (2012)
-%	\begin{columns}
-%		\begin{column}{.6\textwidth}
-%			\begin{figure}
-%				\includegraphics[width= 90 mm]{DH_tutorial_md.assets/image-20220506161850832}
-%			\end{figure}
-%		\end{column}
-%		\begin{column}{.4\textwidth}
-%			\begin{itemize}
-%				\item extended focus imaging, for up to 299 mm
-%				\item tunable diode laser, 838-853 nm, N = 14, for WS-DIH topography
-%			\end{itemize}
-%		\end{column}
-%	\end{columns}
-%\end{frame}
+\begin{frame}{L Xu, et al.: High-precision three-dimensional shape reconstruction via digital refocusing in multi-wavelength digital holography}
+	\vspace{-3 mm}
+	\small Appl Opt 51, 2958 (2012)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\includegraphics[width= 90 mm]{DH_tutorial_md.assets/image-20220506161850832}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item aaa
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
 
 
-\section{AS-SLCH: angle-scanning synthesized low-coherence holography}
+\begin{frame}{S Chen, et al.: Swept source digital holographic phase microscopy}
+	\vspace{-3 mm}
+	\small Opt Lett 41 665 (2016)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+				\includegraphics[width= 90 mm]{DH_tutorial_md.assets/image-20220506162020326}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item aaa
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\section{h-MAOPU: hierarchical multi-angle optical phase unwrapping}
 \begin{frame}[c]
 	\centering\LARGE\textbf{\secname}
 \end{frame}
 
 
-%\begin{frame}{ASDIH theory}
-%aaa
-%\end{frame}
-%
-%
-%\begin{frame}{ASDIH process}
-%aaa
-%\end{frame}
-%
-%
-%\begin{frame}{ASDIH sample python code}
-%aaa
-%\end{frame}
+\begin{frame}{multi-wavelength generation}
+	\begin{itemize}
+		\item discrete lasers
+		\item tunable lsers
+		\item index tuning
+		\item angle scanning
+	\end{itemize}
+\[ \lambda_\theta = \lambda\cdot\cos\theta \]
+\end{frame}
+
+
+\begin{frame}{theory of h-MAOPU}
+aaa
+\end{frame}
+
+
+\begin{frame}{h-MAOPU process}
+aaa
+\end{frame}
+
+
+\begin{frame}{sample python code}
+aaa
+\end{frame}
+
+
+\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
+	\vspace{-3 mm}
+	\small Light: Adv Manufacturing, 3, 1 (2022)
+	\begin{columns}
+		\begin{column}{.47\textwidth}
+			\begin{figure}
+				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427215312948}
+			\end{figure}
+		\end{column}
+		\begin{column}{.28\textwidth}
+			\begin{figure}
+				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215358192}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
+			\begin{itemize}
+				\item[a) ] $ \Phi_1(x,y) $
+				\item[b) ] $ \Phi_2(x,y) $
+				\item[c) ] $ Z_{12}(x,y) $
+				\item[d) ] $ Z_{12\_3}(x,y) $
+				\item[e) ] $ Z_{12\_8}(x,y) $
+				\item[f) ] $ Z_{\textrm{proc}}(x,y) $
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
+	\vspace{-3 mm}
+	\small Light: Adv Manufacturing, 3, 1 (2022)
+	\begin{columns}
+		\begin{column}{.47\textwidth}
+			\begin{figure}
+				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427215431949}
+			\end{figure}
+		\end{column}
+		\begin{column}{.28\textwidth}
+			\begin{figure}
+				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215457707}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
+			\begin{itemize}
+				\item[a) ] $ \Phi_1(x,y) $
+				\item[b) ] $ \Phi_2(x,y) $
+				\item[c) ] $ Z_{12}(x,y) $
+				\item[d) ] $ Z_{12\_3}(x,y) $
+				\item[e) ] $ Z_{12\_8}(x,y) $
+				\item[f) ] $ Z_{\textrm{proc}}(x,y) $
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\begin{frame}{MK Kim: Phase microscopy and surface profilometry by digital holography}
+	\vspace{-3 mm}
+	\small Light: Adv Manufacturing, 3, 1 (2022)
+	\begin{columns}
+		\begin{column}{.47\textwidth}
+%			\begin{figure}
+%				\includegraphics[width=75 mm]{DH_tutorial_md.assets/image-20220427215431949}
+%			\end{figure}
+		\end{column}
+		\begin{column}{.28\textwidth}
+			$ \alpha=0.125 $ \\ instead of $ \alpha = 0.25 $
+			\begin{figure}
+				\includegraphics[width=40 mm]{DH_tutorial_md.assets/image-20220427215537750}
+			\end{figure}
+		\end{column}
+		\begin{column}{.25\textwidth}
+			\begin{itemize}
+				\item[a) ] $ Z_{12}(x,y) $
+				\item[b) ] $ Z_{12\_3}(x,y) $
+				\item[c) ] $ Z_{12\_8}(x,y) $
+				\item[d) ] $ Z_{\textrm{proc}}(x,y) $
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\section{c-MAOPU: cumulative multi-angle optical phase unwrapping}
+\begin{frame}[c]
+	\centering\LARGE\textbf{\secname}
+\end{frame}
+
+
+\begin{frame}{c-MAOPU theory}
+aaa
+\end{frame}
+
+
+\begin{frame}{c-MAOPU process}
+aaa
+\end{frame}
+
+
+\begin{frame}{c-MAOPU sample python code}
+aaa
+\end{frame}
+
+
+\begin{frame}{P Psota, et al.: Multiple angle digital holography for the shape measurement of the unpainted tympanic membrane}
+	\vspace{-3 mm}
+	\small Opt Expr  28, 24624 (2020)
+	\begin{columns}
+		\begin{column}{.6\textwidth}
+			\begin{figure}
+%				\includegraphics[width=90 mm]{DH_tutorial_md.assets/image-20220502140028547}
+				\includegraphics[width=70 mm]{DH_tutorial_md.assets/psota_tympanic}
+			\end{figure}
+		\end{column}
+		\begin{column}{.4\textwidth}
+			\begin{itemize}
+				\item aaa
+			\end{itemize}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+\section{ASDIH: angle-scanning synthesized low-coherence holography}
+\begin{frame}[c]
+	\centering\LARGE\textbf{\secname}
+\end{frame}
+
+
+
+\begin{frame}{ASDIH theory}
+aaa
+\end{frame}
+
+
+\begin{frame}{ASDIH process}
+aaa
+\end{frame}
+
+
+\begin{frame}{ASDIH sample python code}
+aaa
+\end{frame}
 
 
 \begin{frame}{CK Hong, et al.: Optical section imaging of the tilted planes by illumination-angle-scanning digital interference holography}
@@ -1573,8 +1493,7 @@ Use a series of $k$'s and sum over all $E_k$'s:
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item lens on translation stage for angle scan
-				\item N = 100
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -1592,9 +1511,7 @@ Use a series of $k$'s and sum over all $E_k$'s:
 		\end{column}
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
-				\item rotating mirror for angle scan
-				\item $\lambda=$ 532 nm, $\theta_0=$ 45$^\circ$, $\Delta\theta=$ 0.054$^\circ$, N = 15
-				\item $\Lambda=$0.80 mm
+				\item aaa
 			\end{itemize}
 		\end{column}
 	\end{columns}
@@ -1613,8 +1530,6 @@ Use a series of $k$'s and sum over all $E_k$'s:
 		\begin{column}{.4\textwidth}
 			\begin{itemize}
 				\begin{scriptsize}
-					\item SLM for angle scan, N = 17, scan range 25$^\circ$
-					\item height range 45.9 $\mu m$
 					\item[a) ] tall object, 4 um per step
 					\item[b) ] horizontal cross-sections A-A \& B-B of tall object
 					\item[c) ] vertical cross-sections C-C, D-D, E-E, F-F of tall object
@@ -1623,54 +1538,6 @@ Use a series of $k$'s and sum over all $E_k$'s:
 					\item[f) ] vertical cross-sections C-C, D-D, E-E, F-F of low object
 				\end{scriptsize}
 			\end{itemize}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{MA-HOPU}
-	\begin{columns}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\includegraphics[width= 70 mm]{DH_tutorial_md.assets/C_HOPU_M.png}
-			\end{figure}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\includegraphics[width= 60 mm]{DH_tutorial_md.assets/C_HOPU_AAB.png}
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{MA-COPU}
-	\begin{columns}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\includegraphics[width= 70 mm]{DH_tutorial_md.assets/C_COPU_M.png}
-			\end{figure}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\includegraphics[width= 60 mm]{DH_tutorial_md.assets/C_COPU_AAB.png}
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-
-\begin{frame}{MA-DIH}
-	\begin{columns}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\includegraphics[width= 70 mm]{DH_tutorial_md.assets/C_DIH_M.png}
-			\end{figure}
-		\end{column}
-		\begin{column}{.5\textwidth}
-			\begin{figure}
-				\includegraphics[width= 60 mm]{DH_tutorial_md.assets/C_DIH_AAB.png}
-			\end{figure}
 		\end{column}
 	\end{columns}
 \end{frame}
